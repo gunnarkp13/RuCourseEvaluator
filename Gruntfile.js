@@ -1,6 +1,11 @@
 module.exports = function ( grunt ) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		karma: {
+			unit: {
+				configFile: 'karma.conf.js'
+			}
+		},
 		concat: {
   			options: {
     			// define a string to put between each file in the concatenated output
@@ -8,7 +13,7 @@ module.exports = function ( grunt ) {
   			},
   			dist: {
     			// the files to concatenate
-    			src: [''],
+    			src: ['src/js/'],
     			// the location of the resulting JS file
     			dest: 'dist/js/<%= pkg.name %>.js'
   			}
@@ -53,12 +58,13 @@ module.exports = function ( grunt ) {
 	    	tasks: ['jshint']
 	    }
  	});
-
+	
+	grunt.loadNpmTasks('grunt-karma');
  	grunt.loadNpmTasks('grunt-contrib-jshint');
  	grunt.loadNpmTasks('grunt-contrib-uglify');
  	grunt.loadNpmTasks('grunt-contrib-watch');
  	grunt.loadNpmTasks('grunt-contrib-concat');
 
- 	grunt.registerTask('test', ['jshint']);
- 	grunt.registerTask('default', ['jshint','concat','uglify']);
+ 	grunt.registerTask('test', ['karma','jshint']);
+ 	grunt.registerTask('default', ['karma','jshint','concat','uglify']);
 };
