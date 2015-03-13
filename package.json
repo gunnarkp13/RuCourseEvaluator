@@ -1,0 +1,31 @@
+{
+  "name": "RuCourseEvaluator",
+  "version": "1.0.0",
+  "description": "Single Page Web Application for creating and completing course evaluations",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "*",
+    "grunt": "*"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "bower": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-concat": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gunnarkp13/RuCourseEvaluator.git"
+  },
+  "author": "Gunnar Karl Pálmason, Stefán Ingi Daníelsson, Guðjðon Pétursson, Ólafur Ívar Jónsson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gunnarkp13/RuCourseEvaluator/issues"
+  },
+  "homepage": "https://github.com/gunnarkp13/RuCourseEvaluator"
+}
