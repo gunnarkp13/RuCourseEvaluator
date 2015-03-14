@@ -1,4 +1,4 @@
-/// <reference path="counter.js">
+/// <reference path="../src/js/counter.js">
 "use strict";
  
 describe("Counter tests", function () {
