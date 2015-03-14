@@ -30,7 +30,9 @@ module.exports = function ( grunt ) {
   			}
 		},
 	  	jshint: {
-	   		all: [''],
+	   		all: [
+	   			'src/js/*.js',
+	   			'!src/js/*.tests.js'],
 	    	gruntfile: ['Gruntfile.js'],
 	    	options: {
 	     		curly:  true,
