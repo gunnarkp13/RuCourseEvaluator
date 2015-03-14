@@ -19,6 +19,7 @@
     "karma-phantomjs-launcher": "~0.1.2",
     "karma": "~0.10.9",
     "karma-story-reporter": "~0.2.2",
+    "karma-coverage": "~0.1",
     "grunt-karma": "~0.6.2",
     "grunt-cli": "*",
     "karma-sauce-launcher": "~0.1.8"
