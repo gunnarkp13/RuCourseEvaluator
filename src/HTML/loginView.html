@@ -6,10 +6,10 @@
                 <img class="profile-img" src="https://myschool.ru.is/myschool2/Public/images/App_logo.jpg"
                     alt="">
                 <form class="form-signin">
-	                <input type="text" class="form-control" placeholder="Username" required autofocus>
-	                <input type="password" class="form-control" placeholder="Password" required>
-	                <button class="btn btn-lg btn-primary btn-block" type="submit">
-	                    Innskrá</button>
+	                <input type="text" class="form-control" ng-model="Username" placeholder="Username" required autofocus>
+	                <input type="password" class="form-control" ng-model="Password" placeholder="Password" required>
+	                <input class="btn btn-lg btn-primary btn-block" ng-click="login()" type="submit">
+	                    Innskrá</input>
 	                    <input type="checkbox" value="remember-me">
 	                    Muna eftir mér
                 </form>
