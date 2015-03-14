@@ -4,13 +4,12 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 .config(['$routeProvider',
 	function ($routeProvider){
 		$routeProvider
-		.when("/index", {
-			templateUrl: "index.html",
-			controller: ""
+		.when("/loginView", {
+			templateUrl: "src/html/loginView.html",
+			controller: "LoginController"
 		})
 		.otherwise({
-			redirectTo: "/index"
+			redirectTo: "/login"
 		});
 	}
 ]);
-
