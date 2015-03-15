@@ -26,10 +26,10 @@ module.exports = function(config) {
             'bower_components/angular/angular.js',
             'bower_components/angular-route/angular-route.js',
             'bower_components/angular-mocks/angular-mocks.js',
-            'src/js/RuCourseEvaluator.js',
-            'src/js/LoginController.js',
-            'src/js/counter.js',
-            'tests/js/*.js'
+            'src/js/*.js',
+            'src/js/controllers/*.js',
+            'tests/js/*.js',
+            'tests/js/controllers/*.js'
         ],
         // list of files to exclude
         exclude: [''],

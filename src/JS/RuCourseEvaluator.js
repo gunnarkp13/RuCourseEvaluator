@@ -6,7 +6,7 @@ angular.module("RuCourseEvaluator", ['ngRoute']).config(['$routeProvider',
 		$routeProvider
 		.when("/login", {
 			templateUrl: "src/html/loginView.html",
-			controller: "LoginController"
+			controller: "loginController"
 		})
 		.otherwise({
 			redirectTo: "/login"

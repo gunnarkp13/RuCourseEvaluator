@@ -30,8 +30,8 @@ module.exports = function ( grunt ) {
 	            'bower_components/bootstrap/dist/js/bootstrap.js',
 	            'bower_components/angular/angular.js',
 	            'bower_components/angular-route/angular-route.js',
-	            'src/js/RuCourseEvaluator.js',
-	            'src/js/LoginController.js'
+	            'src/js/*.js',
+	            'src/js/controllers/*.js'
     			],
     			// the location of the resulting JS file
     			dest: 'dist/js/<%= pkg.name %>.js'
@@ -75,7 +75,7 @@ module.exports = function ( grunt ) {
 	    	}
 	    },
 	    watch: {
-	    	files: ['src/js/*.js'],
+	    	files: ['src/js/**/*.js'],
 	    	tasks: ['jshint','concat','uglify','karma'],
 	    	options: {
 	    		atBegin: true,
