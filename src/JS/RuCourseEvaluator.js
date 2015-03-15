@@ -1,15 +1,19 @@
 "use strict";
 
-angular.module("RuCourseEvaluator", ['ngRoute'])
+angular.module("RuCourseEvaluator", ['ngRoute', 'luegg.directives'])
 .config(['$routeProvider',
 	function ($routeProvider){
 		$routeProvider
+		.when("/homeView", {
+			templateUrl: "src/html/homeView.html",
+			controller: "homeView"
+		})
 		.when("/loginView", {
-			templateUrl: "src/html/loginView.html",
+			templateUrl: "src/HTML/loginView.html",
 			controller: "LoginController"
 		})
 		.otherwise({
-			redirectTo: "/login"
+			redirectTo: "/loginView"
 		});
 	}
 ]);

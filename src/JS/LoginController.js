@@ -1,11 +1,11 @@
 angular.module("RuCourseEvaluator").controller("LoginController", [
 	'$scope',
-	 '$http',
-	  '$location',
-	   '$rootScope',
-	    '$routeParams',
-	      'sharedVariables',
-	       function ($scope, $http, $location, $rootScope, $routeParams, sharedVariables) {
+	'$http',
+	'$location',
+	'$rootScope',
+	'$routeParams',
+	'sharedVariables',
+	function ($scope, $http, $location, $rootScope, $routeParams, sharedVariables) {
 	
 	var loginData = {
 		user: $scope.Username,
@@ -18,6 +18,5 @@ $scope.login = function() {
 		console.log("Worked!")
 		login.user = data;)
 	}
-	
 ]);
 
