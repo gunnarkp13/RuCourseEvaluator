@@ -6,29 +6,20 @@ describe('loginController tests', function() {
 
 	var scope, createController, evaluationServer, backend;
 
-	beforeEach(inject(function ($rootScope, $controller, $httpBackend) {
+
+	beforeEach(inject(function ($rootScope, $controller, $httpBackend, evaluationServer) {
    		scope = $rootScope.$new();
    		backend = $httpBackend;
-   		evaluationServer = 	function () {
-			return $service ('evaluationServer' [
-				function () {
-					var url = function () {
-						return 'https://www.mammain.gov';
-					};
-				}
-			]);	
-		};
-		$httpBackend.expectPOST(evaluationServer.url() + '/api/v1/login').respond()
-      	$httpBackend.expect()
-      	$httpBackend.expect()
+   		evaluationServer = $constant('evaluationServer', 'https://mammain.gov');
       	createController = function() {
       		return $controller('loginController', {
       			'$scope': scope,
-      			'$http': $httpBackend
+      			'$http': $httpBackend,
       			'evaluationServer': evaluationServer
       		});
       	};
     }));
+
 
 	it('should return success when calling login with bobbi and 123456', function() {
 		var controller = createController();
@@ -36,10 +27,12 @@ describe('loginController tests', function() {
 			user: "bobbi",
 			pass: '123456'
 		};
+		backend.expect('POST', evaluationServer + '/api/v1/login').respond(200, '{token: rass, role: student}');
 		var expected = "success";
 		var result = controller.login(loginData);
 
 		expect(result).toBe(expected);
+		backend.flush();
 	});
 
 	it('should return failure when calling login with bobbi and nopass ', function() {
@@ -48,10 +41,12 @@ describe('loginController tests', function() {
 			user: "bobbi",
 			pass: ''
 		};
+		backend.expect('POST', evaluationServer + '/api/v1/login').respond(401, '');
 		var expected = "failure";
 		var result = controller.login(loginData);
 
 		expect(result).toBe(expected);
+		backend.flush();
 	});
 
 });
