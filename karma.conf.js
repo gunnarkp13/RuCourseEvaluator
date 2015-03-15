@@ -24,16 +24,15 @@ module.exports = function(config) {
             'bower_components/bootstrap/js/affix.js',
             'bower_components/bootstrap/dist/js/bootstrap.js',
             'bower_components/angular/angular.js',
-            'bower_components/angular-mocks/angular-mocks.js',
             'bower_components/angular-route/angular-route.js',
-            'tests/js/*.js',
-            'src/js/*.js',
+            'bower_components/angular-mocks/angular-mocks.js',
+            'src/js/RuCourseEvaluator.js',
+            'src/js/LoginController.js',
+            'src/js/counter.js',
+            'tests/js/*.js'
         ],
- 
         // list of files to exclude
-        exclude: [''
-        ],
- 
+        exclude: [''],
         // test results reporter to use
         reporters: ['coverage','progress'],
 
@@ -71,6 +70,6 @@ module.exports = function(config) {
  
         // Continuous Integration mode
         // if true, it capture browsers, run tests and exit
-        singleRun: false
+        singleRun: true
     });
 };

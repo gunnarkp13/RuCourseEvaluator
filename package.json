@@ -7,22 +7,22 @@
   "devDependencies": {
     "bower": "^1.3.12",
     "grunt": "*",
+    "grunt-cli": "*",
     "grunt-contrib-concat": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-contrib-watch": "*",
-    "karma-script-launcher": "~0.1.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-karma": "~0.6.2",
+    "karma": "~0.10.9",
     "karma-chrome-launcher": "~0.1.2",
+    "karma-coverage": "~0.1",
     "karma-firefox-launcher": "~0.1.3",
     "karma-ie-launcher": "~0.1",
     "karma-jasmine": "~0.1.5",
     "karma-phantomjs-launcher": "~0.1.2",
-    "karma": "~0.10.9",
-    "karma-story-reporter": "~0.2.2",
-    "karma-coverage": "~0.1",
-    "grunt-karma": "~0.6.2",
-    "grunt-cli": "*",
-    "karma-sauce-launcher": "~0.1.8"
+    "karma-sauce-launcher": "~0.1.8",
+    "karma-script-launcher": "~0.1.0",
+    "karma-story-reporter": "~0.2.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

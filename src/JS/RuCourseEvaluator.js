@@ -1,10 +1,9 @@
 "use strict";
-
-angular.module("RuCourseEvaluator", ['ngRoute'])
-.config(['$routeProvider',
-	function ($routeProvider){
+//test
+angular.module("RuCourseEvaluator", ['ngRoute']).config(['$routeProvider',
+	function ($routeProvider) {
 		$routeProvider
-		.when("/loginView", {
+		.when("/login", {
 			templateUrl: "src/html/loginView.html",
 			controller: "LoginController"
 		})

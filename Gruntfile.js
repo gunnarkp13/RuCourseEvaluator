@@ -9,11 +9,30 @@ module.exports = function ( grunt ) {
 		concat: {
   			options: {
     			// define a string to put between each file in the concatenated output
-    			separator: ';'
+    			separator: ''
   			},
   			dist: {
     			// the files to concatenate
-    			src: ['src/js/'],
+    			src: [
+  				'bower_components/jquery/dist/jquery.js',
+            	'bower_components/bootstrap/js/transition.js',
+	            'bower_components/bootstrap/js/tooltip.js',
+	            'bower_components/bootstrap/js/alert.js',
+	            'bower_components/bootstrap/js/button.js',
+	            'bower_components/bootstrap/js/carousel.js',
+	            'bower_components/bootstrap/js/collapse.js',
+	            'bower_components/bootstrap/js/dropdown.js',
+	            'bower_components/bootstrap/js/modal.js',
+	            'bower_components/bootstrap/js/popover.js',
+	            'bower_components/bootstrap/js/scrollspy.js',
+	            'bower_components/bootstrap/js/tab.js',
+	            'bower_components/bootstrap/js/affix.js',
+	            'bower_components/bootstrap/dist/js/bootstrap.js',
+	            'bower_components/angular/angular.js',
+	            'bower_components/angular-route/angular-route.js',
+	            'src/js/RuCourseEvaluator.js',
+	            'src/js/LoginController.js'
+    			],
     			// the location of the resulting JS file
     			dest: 'dist/js/<%= pkg.name %>.js'
   			}
@@ -32,7 +51,7 @@ module.exports = function ( grunt ) {
 	  	jshint: {
 	   		all: [
 	   			'src/js/*.js',
-	   			'!src/js/*.tests.js'],
+			],
 	    	gruntfile: ['Gruntfile.js'],
 	    	options: {
 	     		curly:  true,
@@ -56,8 +75,12 @@ module.exports = function ( grunt ) {
 	    	}
 	    },
 	    watch: {
-	    	files: ['<%= jshint.files%>'],
-	    	tasks: ['jshint']
+	    	files: ['src/js/*.js'],
+	    	tasks: ['jshint','concat','uglify','karma'],
+	    	options: {
+	    		atBegin: true,
+	    		spawn: true
+	    	}
 	    }
  	});
 	
@@ -68,5 +91,5 @@ module.exports = function ( grunt ) {
  	grunt.loadNpmTasks('grunt-contrib-concat');
 
  	grunt.registerTask('test', ['karma','jshint']);
- 	grunt.registerTask('default', ['karma','jshint','concat','uglify']);
+ 	grunt.registerTask('default', ['jshint','concat','uglify','karma','watch']);
 };
