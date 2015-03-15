@@ -4,13 +4,24 @@
 describe('loginController tests', function() {
 	beforeEach(module('RuCourseEvaluator'));
 
-	var scope, createController;
+	var scope, createController, evaluationServer, backend;
 
-	beforeEach(inject(function ($rootScope, $controller) {
+	beforeEach(inject(function ($rootScope, $controller, $httpBackend) {
    		scope = $rootScope.$new();
+   		backend = $httpBackend;
+   		evaluationServer = 	function () {
+			evaluationServer.url = function () {
+				return "https://www.mammain.gov";
+			};	
+		};
+		$httpBackend.expect()
+      	$httpBackend.expect()
+      	$httpBackend.expect()
       	createController = function() {
       		return $controller('loginController', {
-      			'$scope': scope
+      			'$scope': scope,
+      			'$http': $httpBackend
+      			'evaluationServer': evaluationServer
       		});
       	};
     }));

@@ -1,7 +1,16 @@
-angular.module("RuCourseEvaluator").controller("loginController", [
+angular.module("RuCourseEvaluator")
+.service("evaluationServer", [ 
+	function () {
+		this.url = function () {
+			return "https://www.mammain.gov";
+		};	
+	}
+])
+.controller("loginController", [
 	'$scope',
 	'$http',
-	function ($scope, $http) {
+	'evaluationServer',
+	function ($scope, $http, evaluationServer) {
 
 		this.login = function( loginInfo ) {
 			var result;
@@ -15,3 +24,5 @@ angular.module("RuCourseEvaluator").controller("loginController", [
 		};
 	}	
 ]);
+
+
