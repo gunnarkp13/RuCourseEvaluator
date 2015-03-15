@@ -50,7 +50,7 @@ module.exports = function ( grunt ) {
 		},
 	  	jshint: {
 	   		all: [
-	   			'src/js/*.js',
+	   			'src/js/**/*.js',
 			],
 	    	gruntfile: ['Gruntfile.js'],
 	    	options: {

@@ -1,13 +1,15 @@
 angular.module("RuCourseEvaluator").controller("loginController", [
 	'$scope',
-	function ($scope) {
+	'$http',
+	function ($scope, $http) {
 
 		this.login = function( loginInfo ) {
+			var result;
 			if (loginInfo.user === 'bobbi' && loginInfo.pass === '12345') {
-				var result = "success";
+				result = "success";
 				return result;
 			} else {
-				var result = "failure";
+				result = "failure";
 				return result;
 			}
 		};
