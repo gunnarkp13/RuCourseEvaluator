@@ -10,11 +10,15 @@ describe('loginController tests', function() {
    		scope = $rootScope.$new();
    		backend = $httpBackend;
    		evaluationServer = 	function () {
-			evaluationServer.url = function () {
-				return "https://www.mammain.gov";
-			};	
+			return $service ('evaluationServer' [
+				function () {
+					var url = function () {
+						return 'https://www.mammain.gov';
+					};
+				}
+			]);	
 		};
-		$httpBackend.expect()
+		$httpBackend.expectPOST(evaluationServer.url() + '/api/v1/login').respond()
       	$httpBackend.expect()
       	$httpBackend.expect()
       	createController = function() {
@@ -30,7 +34,7 @@ describe('loginController tests', function() {
 		var controller = createController();
 		var loginData = {
 			user: "bobbi",
-			pass: '12345'
+			pass: '123456'
 		};
 		var expected = "success";
 		var result = controller.login(loginData);
