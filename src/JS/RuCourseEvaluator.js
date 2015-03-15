@@ -1,4 +1,5 @@
 "use strict";
+
 //test
 angular.module("RuCourseEvaluator", ['ngRoute']).config(['$routeProvider',
 	function ($routeProvider) {
@@ -8,7 +9,7 @@ angular.module("RuCourseEvaluator", ['ngRoute']).config(['$routeProvider',
 			controller: "LoginController"
 		})
 		.otherwise({
-			redirectTo: "/login"
+			redirectTo: "/loginView"
 		});
 	}
 ]);
