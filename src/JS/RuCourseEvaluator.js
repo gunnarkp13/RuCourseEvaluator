@@ -9,7 +9,7 @@ angular.module("RuCourseEvaluator", ['ngRoute']).config(['$routeProvider',
 			controller: "LoginController"
 		})
 		.otherwise({
-			redirectTo: "/loginView"
+			redirectTo: "/login"
 		});
 	}
 ]);
