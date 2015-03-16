@@ -1,18 +1,20 @@
-angular.module("RuCourseEvaluator")
-.constant("evaluationServer", 'https://mammain.gov')
-.controller("loginController", [
+angular.module('RuCourseEvaluator').controller("loginController", [
 	'$scope',
 	'$http',
 	'evaluationServer',
-	function ($scope, $http, evaluationServer) {
+	'loginResource',
+	function ($scope, $http, evaluationServer, loginResource) {
 
-		this.login = function( loginInfo ) {
-			var result;
-			$http.post(evaluationServer + '/api/v1/login', loginInfo).success(function () {
-				result = 'success';
-				return result;
-			}).error(function () {
-				result = 'failure';
+		$scope.login = function() {
+			console.log($scope.user);
+			var loginInfo = {
+				user: $scope.user,
+				pass: $scope.pass
+			};
+			loginResource.login(loginInfo, evaluationServer)
+			.success(function (data) {
+				console.log(data);
+				var result = data;
 				return result;
 			});
 		};
