@@ -5,6 +5,10 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 .config(['$routeProvider',
 	function ($routeProvider) {
 		$routeProvider
+		.when("/editEval/:evalObj", {
+			templateUrl: "src/html/adminCreateTemplateView.html",
+			controller:  "createTemplateController"
+		})
 		.when("/studentEval/:evalObj", {
 			templateUrl: "src/html/studentEvaluationView.html",
 			controller: "StudentEvalController"
@@ -18,7 +22,7 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 			controller: "adminController"
 		})
 		.when("/adminList",{
-			templateUrl: "src/html/adminCheckEvalList.html",
+			templateUrl: "src/html/adminCheckEvalListView.html",
 			controller: "adminCheckEvalListController"
 		})
 		.when("/student", {
@@ -38,16 +42,26 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 			login: function (loginInfo, evaluationServer) {
 				return $http.post(evaluationServer + '/api/v1/login', loginInfo);
 		    },
-
 		    getStuEvals: function (evaluationServer, token) {
 		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
 		    	return $http.get(evaluationServer + '/api/v1/my/evaluations');
 		    },
-		    getTemplates: function(token, evaluationServer) {
+		    getTemplates: function(evaluationServer, token) {
 		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + '/api/v1/evaluationtemplates');
-			}
-
+			},
+			getTemplate: function (id, evaluationServer, token) {
+				$http.defaults.headers.common.Authorization = 'Basic ' + token;
+				return $http.get(evaluationServer + 'api/v1/evaluationtemplates/' + id);
+			},
+			postTemplate: function (template, evaluationServer, token) {
+				$http.defaults.headers.common.Authorization = 'Basic ' + token;
+				return $http.post(evaluationServer + "api/v1/evaluationtemplates", template);
+			},
+			getTeachers: function (course, semester, evaluationServer, token){
+				$http.defaults.headers.common.Authorization = 'Basic ' + token;
+				return $http.get(evaluationServer + "api/v1/courses/" + course + "/" + semester + "/teachers");
+			},
 		};
 	}
 ])
