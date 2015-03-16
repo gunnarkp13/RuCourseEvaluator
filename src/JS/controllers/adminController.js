@@ -10,6 +10,7 @@ angular.module('RuCourseEvaluator').controller("adminController", [
 	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, loginResource, sessionCookie) {
 
 		$scope.getTemplateList = function () {
+			
 			$http.defaults.headers.common.Authorization = 'Basic ' + sessionCookie.getToken();
 			$location.path('/adminList');
 		};
