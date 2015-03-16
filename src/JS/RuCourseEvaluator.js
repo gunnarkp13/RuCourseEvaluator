@@ -62,13 +62,13 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 				$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + "api/v1/courses/" + course + "/" + semester + "/teachers");
 			},
-			getCourseEval: function (course, semester, evalID) {
+			getCourseEval: function (course, semester, evalID, token) {
 				$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + "api/v1/courses/" + course + "/" + semester + "/evaluations/" + evalID);	
 			},
-			postCourseEval: function (course, semester, evalID, evalObj) {
+			postCourseEval: function (course, semester, evalID, evalObj, token) {
 				$http.defaults.headers.common.Authorization = 'Basic ' + token;
-				return $http.post(evaluationServer + "api/v1/courses/" + course + "/"semester"/evaluations/" + evalID, evalObj);	
+				return $http.post(evaluationServer + "api/v1/courses/" + course + "/" + semester + "/evaluations/" + evalID, evalObj);	
 			}
 		};
 	}

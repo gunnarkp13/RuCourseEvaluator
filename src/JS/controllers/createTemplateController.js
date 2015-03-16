@@ -8,13 +8,14 @@ angular.module('RuCourseEvaluator').controller("createTemplateController",[
 	'loginResource',
 	'sessionCookie', 
 	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, loginResource, sessionCookie) {
+		var evalObj = $routeParams.evalObj;
 		$scope.questions = [];
-		$scope.templateID;
-		$scope.TemplateTitle;
-		$scope.TemplateTitleEN;
-		$scope.StartDate;
-		$scope.EndDate;
-		$scope.Status;
+		$scope.templateID = '';
+		$scope.TemplateTitle = '';
+		$scope.TemplateTitleEN = '';
+		$scope.StartDate = '';
+		$scope.EndDate = '';
+		$scope.Status = '';
 
 		if($routeParams.evalObj !== undefined) {
 			$scope.templateID = evalObj.templateID;
