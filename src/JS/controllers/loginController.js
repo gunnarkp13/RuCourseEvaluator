@@ -20,5 +20,3 @@ angular.module('RuCourseEvaluator').controller("loginController", [
 		};
 	}	
 ]);
-
-
