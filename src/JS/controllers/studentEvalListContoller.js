@@ -9,6 +9,7 @@ angular.module('RuCourseEvaluator').controller("studentEvalListController", [
 	'sessionCookie',
 	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, loginResource, sessionCookie) {
 		$scope.evaluations = [];
+		$scope.errorMessage = '';
 		
 		loginResource.getStuEvals(evaluationServer, sessionCookie.getToken())
 		.success(function (response) {
@@ -17,6 +18,7 @@ angular.module('RuCourseEvaluator').controller("studentEvalListController", [
 			$scope.evaluations = response;
 		})
 		.error(function (response) {
+			$scope.errorMessage = 'Ekki náðist samband eða eitthvað annað fór úrskeiðis';
 			console.log("something went wrong: " + response);
 		});
 

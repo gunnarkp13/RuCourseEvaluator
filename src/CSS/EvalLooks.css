@@ -24,6 +24,17 @@ body {
 	cursor: pointer;
 }
 
+li.no-evalObj {
+    display: block;
+}
+li + li.no-evalObj {
+    display: none;
+}
+
+li {
+	list-style: none;
+}
+
 /******************************
 *  fengið af stack overflow   *
 *  notað til að gera submenu  *

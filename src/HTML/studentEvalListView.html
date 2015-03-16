@@ -1,11 +1,27 @@
 <div class="container">
-		<div ng-repeat="evalObj in evaluations">
-			<div class="row">
-				<div class="col-md-2"></div>
-				<div class="evalList list-group-item col-md-8" ng-click="takeEval(evalObj)">
-					{{evalObj.CourseID}}  {{evalObj.CourseName}}  {{evalObj.Semester}}
+	<div class="alert alert-danger" ng-cloak ng-show="errorMessage !=''" >
+	{{errorMessage}}
+	</div>
+	<div >
+		<ul>
+			<li ng-repeat="evalObj in evaluations">
+				<div class="row">
+						<div class="col-md-2"></div>
+						<div class="evalList list-group-item col-md-8" ng-click="takeEval(evalObj)">
+							{{evalObj.CourseID}}  {{evalObj.CourseName}}  {{evalObj.Semester}}
+						</div>
+					<div class="col-md-2"></div>
 				</div>
-			<div class="col-md-2"></div>
-		</div>
+			</li>
+			<li class="no-evalObj">
+				<div class="row">
+						<div class="col-md-2"></div>
+						<div class="evalList list-group-item col-md-8" ng-click="takeEval(evalObj)">
+							Engin námskeið fyrir þig að meta! skrá út
+						</div>
+					<div class="col-md-2"></div>
+				</div>
+			</li>
+		</ul>
 	</div>
 </div>
