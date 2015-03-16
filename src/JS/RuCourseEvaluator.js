@@ -17,6 +17,10 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 			templateUrl: "src/html/adminHomeView.html",
 			controller: "adminController"
 		})
+		.when("/adminList",{
+			templateUrl: "src/html/adminCheckEvalList.html",
+			controller: "adminCheckEvalListController"
+		})
 		.when("/student", {
 			templateUrl: "src/html/studentEvalListView.html",
 			controller: "studentEvalListController"
@@ -38,7 +42,12 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 		    getStuEvals: function (evaluationServer, token) {
 		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
 		    	return $http.get(evaluationServer + '/api/v1/my/evaluations');
-		    }
+		    },
+		    getTemplates: function(token, evaluationServer) {
+		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
+				return $http.get(evaluationServer + '/api/v1/evaluationtemplates');
+			}
+
 		};
 	}
 ])

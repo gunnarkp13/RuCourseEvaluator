@@ -26,8 +26,10 @@ angular.module('RuCourseEvaluator').controller("loginController", [
 		        	response['User']['Role']
 		        );
 		        if(response['User']['Role'] === 'admin'){
+		        	console.log(sessionCookie.getToken());
 		        	$location.path('/admin');
 		    	} else {
+		    		console.log(sessionCookie.getToken());
 		    		$location.path('/student');
 		    	}
 		  	})
