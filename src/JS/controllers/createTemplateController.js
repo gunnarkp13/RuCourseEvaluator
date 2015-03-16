@@ -5,9 +5,9 @@ angular.module('RuCourseEvaluator').controller("createTemplateController",[
 	'$http',
 	'$routeParams',
 	'evaluationServer',
-	'loginResource',
+	'serverResource',
 	'sessionCookie', 
-	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, loginResource, sessionCookie) {
+	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, serverResource, sessionCookie) {
 		var evalObj = $routeParams.evalObj;
 		$scope.questions = [];
 		$scope.templateID = '';
