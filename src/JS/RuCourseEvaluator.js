@@ -22,6 +22,7 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 		});
 	}
 ])
+
 .factory('loginResource', [
 	'$http',
 	function ($http) {
