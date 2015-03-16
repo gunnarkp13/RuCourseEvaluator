@@ -14,13 +14,14 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 		});
 	}
 ])
+
 .factory('loginResource', [
 	'$http',
 	function ($http) {
 		return {
 			login: function (loginInfo, evaluationServer) {
 			return $http.post(evaluationServer + '/api/v1/login', loginInfo)
-		        .then(function(response) {
+		        .success(function(response) {
 		        	console.log(response);
 		        	return response;
 		        });
