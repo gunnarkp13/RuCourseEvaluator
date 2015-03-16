@@ -91,5 +91,5 @@ module.exports = function ( grunt ) {
  	grunt.loadNpmTasks('grunt-contrib-concat');
 
  	grunt.registerTask('test', ['jshint','karma']);
- 	grunt.registerTask('default', ['jshint','concat','uglify','karma','watch']);
+ 	grunt.registerTask('default', ['jshint','concat','uglify','karma']);
 };

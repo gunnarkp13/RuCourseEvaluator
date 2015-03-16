@@ -1,9 +1,13 @@
 angular.module('RuCourseEvaluator').controller("loginController", [
 	'$scope',
+	'$location',
 	'$http',
 	'evaluationServer',
 	'loginResource',
-	function ($scope, $http, evaluationServer, loginResource) {
+	'sessionCookie',
+	function ($scope, $location, $http, evaluationServer, loginResource, sessionCookie) {
+
+		sessionCookie.set('','','','');
 
 		$scope.login = function() {
 			console.log($scope.user);
@@ -12,11 +16,25 @@ angular.module('RuCourseEvaluator').controller("loginController", [
 				pass: $scope.pass
 			};
 			loginResource.login(loginInfo, evaluationServer)
-			.success(function (data) {
-				console.log(data);
-				var result = data;
-				return result;
-			});
+			.success(function (response) {
+				console.log("success");
+				console.log(response['User']['Role']);
+		        sessionCookie.set(
+		        	response['User']['Username'],
+		        	response['Token'],
+		        	response['User']['FullName'],
+		        	response['User']['Role']
+		        );
+		        if(response['User']['Role'] === 'admin'){
+		        	$location.path('/admin');
+		    	} else {
+		    		$location.path('/student');
+		    	}
+		  	})
+			.error(function (response) {
+		        console.log("error");
+		        $location.path('/login'); 
+		   	});
 		};
 	}	
 ]);

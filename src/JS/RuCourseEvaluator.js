@@ -9,6 +9,14 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 			templateUrl: "src/html/loginView.html",
 			controller: "loginController"
 		})
+		.when("/admin", {
+			templateUrl: "src/html/adminHomeView.html",
+			controller: "adminController"
+		})
+		.when("/student", {
+			templateUrl: "src/html/studentEvalListView.html",
+			controller: "studentEvalListController"
+		})
 		.otherwise({
 			redirectTo: "/login"
 		});
@@ -19,13 +27,50 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 	function ($http) {
 		return {
 			login: function (loginInfo, evaluationServer) {
-			return $http.post(evaluationServer + '/api/v1/login', loginInfo)
-		        .then(function(response) {
-		        	console.log(response);
-		        	return response;
-		        });
+				return $http.post(evaluationServer + '/api/v1/login', loginInfo);
 		    }
 		};
 	}
 ])
-.constant('evaluationServer', 'http://dispatch.ru.is/demo');
+.constant('evaluationServer', 'http://dispatch.ru.is/demo')
+.service('sessionCookie',['$q',
+	function ($q) {
+		var self = this, 
+			defer = $q.defer();
+
+		/* */
+		this.User = '';
+		this.Token = '';
+		this.FullName = '';
+		this.Role = '';
+
+		this.observe = function () {
+			return defer.promise;
+		};
+
+		this.set = function (user, token, fullname, role) {
+			this.User = user;
+			this.Token = token;
+			this.FullName = fullname;
+			this.Role = role;
+			defer.notify(self);
+			
+		};
+
+		this.getUser = function () {
+			return this.User;
+		};
+
+		this.getToken = function () {
+			return this.Token;
+		};
+
+		this.getFullName = function () {
+			return this.FullName;
+		};
+
+		this.getRole = function () {
+			return this.Role;
+		};
+	}
+]);

@@ -1,0 +1,1 @@
+angular.module('RuCourseEvaluator').controller("adminController", [function () {}]);
