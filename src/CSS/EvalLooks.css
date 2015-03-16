@@ -12,6 +12,18 @@ body {
 	background-color: #D81920;
 }
 
+.evalList {
+	border-radius: 5px;
+	margin-top: 5px;
+	background-color: red;
+}
+
+.evalList:hover {
+	background-color: #D81920;
+	box-shadow: 0px 0px 5px -1px rgba(0,0,0,1);
+	cursor: pointer;
+}
+
 /******************************
 *  fengið af stack overflow   *
 *  notað til að gera submenu  *
