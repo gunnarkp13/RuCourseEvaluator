@@ -1,6 +1,6 @@
 /// <reference path="../src/js/RuCourseEvaluator.js">
-"use strict";
+/*"use strict";
 
 describe("$routeProvider tests", function () {
 
-});
+});*/
