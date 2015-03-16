@@ -8,7 +8,7 @@ angular.module('RuCourseEvaluator').controller("loginController", [
 	function ($scope, $location, $http, evaluationServer, loginResource, sessionCookie) {
 
 		sessionCookie.set('','','','');
-
+		$http.defaults.headers.common.Authorization = 'Basic ' + '';
 		$scope.login = function() {
 			console.log($scope.user);
 			var loginInfo = {

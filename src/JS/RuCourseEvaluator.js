@@ -5,6 +5,10 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 .config(['$routeProvider',
 	function ($routeProvider) {
 		$routeProvider
+		.when("/studentEval/:evalObj", {
+			templateUrl: "src/html/studentEvaluationView.html",
+			controller: "StudentEvalController"
+		})
 		.when("/login", {
 			templateUrl: "src/html/loginView.html",
 			controller: "loginController"
@@ -29,6 +33,11 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 		return {
 			login: function (loginInfo, evaluationServer) {
 				return $http.post(evaluationServer + '/api/v1/login', loginInfo);
+		    },
+
+		    getStuEvals: function (evaluationServer, token) {
+		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
+		    	return $http.get(evaluationServer + '/api/v1/my/evaluations');
 		    }
 		};
 	}
