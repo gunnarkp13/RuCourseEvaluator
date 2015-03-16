@@ -5,13 +5,13 @@ angular.module('RuCourseEvaluator').controller("studentEvalListController", [
 	'$http',
 	'$routeParams',
 	'evaluationServer',
-	'loginResource',
+	'serverResource',
 	'sessionCookie',
-	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, loginResource, sessionCookie) {
+	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, serverResource, sessionCookie) {
 		$scope.evaluations = [];
 		$scope.errorMessage = '';
 		
-		loginResource.getStuEvals(sessionCookie.getToken())
+		serverResource.getStuEvals(sessionCookie.getToken())
 		.success(function (response) {
 			console.log("success");
 			console.log(response);

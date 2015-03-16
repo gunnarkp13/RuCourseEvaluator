@@ -34,9 +34,10 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 		});
 	}
 ])
-
-.factory('loginResource', [
+.constant('evaluationServer', 'http://dispatch.ru.is/demo')
+.factory('serverResource', [
 	'$http',
+	'evaluationServer',
 	function ($http, evaluationServer) {
 		return {
 			login: function (loginInfo) {
@@ -73,7 +74,6 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 		};
 	}
 ])
-.constant('evaluationServer', 'http://dispatch.ru.is/demo')
 .service('sessionCookie',['$q',
 	function ($q) {
 		var self = this, 

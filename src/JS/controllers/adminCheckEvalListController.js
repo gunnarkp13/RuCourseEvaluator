@@ -3,14 +3,14 @@ angular.module('RuCourseEvaluator').controller("adminCheckEvalListController", [
 	'$location',
 	'$http',
 	'evaluationServer',
-	'loginResource',
+	'serverResource',
 	'sessionCookie',
-	function ($scope, $location, $http, evaluationServer, loginResource, sessionCookie) {
+	function ($scope, $location, $http, evaluationServer, serverResource, sessionCookie) {
 		var templist = [];
 		console.log(sessionCookie.getToken());
 
 		if (sessionCookie.getRole() === 'admin') {
-			loginResource.getTemplates(sessionCookie.getToken())
+			serverResource.getTemplates(sessionCookie.getToken())
 			.success(function (response) {
 				templist = response;
 				console.log("success");

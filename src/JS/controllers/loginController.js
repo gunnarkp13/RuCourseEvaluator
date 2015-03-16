@@ -3,10 +3,9 @@ angular.module('RuCourseEvaluator').controller("loginController", [
 	'$location',
 	'$http',
 	'evaluationServer',
-	'loginResource',
+	'serverResource',
 	'sessionCookie',
-	function ($scope, $location, $http, evaluationServer, loginResource, sessionCookie) {
-
+	function ($scope, $location, $http, evaluationServer, serverResource, sessionCookie) {
 		sessionCookie.set('','','','');
 		$http.defaults.headers.common.Authorization = 'Basic ' + '';
 		$scope.login = function() {
@@ -15,7 +14,7 @@ angular.module('RuCourseEvaluator').controller("loginController", [
 				user: $scope.user,
 				pass: $scope.pass
 			};
-			loginResource.login(loginInfo)
+			serverResource.login(loginInfo)
 			.success(function (response) {
 				console.log("success");
 				console.log(response['User']['Role']);

@@ -5,9 +5,9 @@ angular.module('RuCourseEvaluator').controller("adminController", [
 	'$http',
 	'$routeParams',
 	'evaluationServer',
-	'loginResource',
+	'serverResource',
 	'sessionCookie',
-	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, loginResource, sessionCookie) {
+	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, serverResource, sessionCookie) {
 
 		$scope.getTemplateList = function () {
 			
