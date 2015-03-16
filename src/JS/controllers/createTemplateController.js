@@ -1,10 +1,28 @@
-/*$(function () {
-	$('#datetimepicker1').datetimepicker();
-	$('#datetimepicker2').datetimepicker();
-	$("#datetimepicker1").on("dp.change",function (e) {
-	$('#datetimepicker2').data("DateTimePicker").minDate(e.date);
-		});
-	$("#datetimepicker2").on("dp.change",function (e) {
-	$('#datetimepicker1').data("DateTimePicker").maxDate(e.date);
-		});
-});*/
+angular.module('RuCourseEvaluator').controller("createTemplateController",[
+	'$scope',
+	'$location',
+	'$rootScope',
+	'$http',
+	'$routeParams',
+	'evaluationServer',
+	'loginResource',
+	'sessionCookie', 
+	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, loginResource, sessionCookie) {
+		$scope.questions = [];
+		$scope.templateID;
+		$scope.TemplateTitle;
+		$scope.TemplateTitleEN;
+		$scope.StartDate;
+		$scope.EndDate;
+		$scope.Status;
+
+		if($routeParams.evalObj !== undefined) {
+			$scope.templateID = evalObj.templateID;
+			$scope.TemplateTitle = evalObj.TemplateTitle;
+			$scope.TemplateTitleEN = evalObj.TemplateTitleEN;
+			$scope.StartDate = evalObj.StartDate;
+			$scope.EndDate = evalObj.EndDate;
+			$scope.Status = evalObj.Status;			
+		}
+	}
+]);

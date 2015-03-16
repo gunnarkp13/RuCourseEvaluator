@@ -12,7 +12,7 @@ angular.module('RuCourseEvaluator').controller("adminController", [
 		$scope.getTemplateList = function () {
 			
 			$http.defaults.headers.common.Authorization = 'Basic ' + sessionCookie.getToken();
-			$location.path('/adminList');
+			$location.path('/adminList/');
 		};
 	}
 ]);
