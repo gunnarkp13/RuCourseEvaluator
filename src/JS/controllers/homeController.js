@@ -21,6 +21,7 @@ angular.module('RuCourseEvaluator').controller('homeController', [
 		$scope.logout = function () {
 			sessionCookie.set('','','','');
 			$http.defaults.headers.common.Authorization = 'Basic ' + '';
+			$location.path('/login');
 		};
 	}
 ]);
