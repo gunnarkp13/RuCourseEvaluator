@@ -10,7 +10,7 @@ angular.module('RuCourseEvaluator').controller("adminCheckEvalListController", [
 		console.log(sessionCookie.getToken());
 
 		if (sessionCookie.getRole() === 'admin') {
-			loginResource.getTemplates(evaluationServer, sessionCookie.getToken())
+			loginResource.getTemplates(sessionCookie.getToken())
 			.success(function (response) {
 				templist = response;
 				console.log("success");

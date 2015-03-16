@@ -10,7 +10,7 @@ angular.module('RuCourseEvaluator').controller("studentEvalListController", [
 	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, loginResource, sessionCookie) {
 		$scope.evaluations = [];
 		
-		loginResource.getStuEvals(evaluationServer, sessionCookie.getToken())
+		loginResource.getStuEvals(sessionCookie.getToken())
 		.success(function (response) {
 			console.log("success");
 			console.log(response);

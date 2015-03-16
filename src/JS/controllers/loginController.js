@@ -15,7 +15,7 @@ angular.module('RuCourseEvaluator').controller("loginController", [
 				user: $scope.user,
 				pass: $scope.pass
 			};
-			loginResource.login(loginInfo, evaluationServer)
+			loginResource.login(loginInfo)
 			.success(function (response) {
 				console.log("success");
 				console.log(response['User']['Role']);

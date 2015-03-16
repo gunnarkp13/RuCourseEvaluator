@@ -37,31 +37,39 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 
 .factory('loginResource', [
 	'$http',
-	function ($http) {
+	function ($http, evaluationServer) {
 		return {
-			login: function (loginInfo, evaluationServer) {
+			login: function (loginInfo) {
 				return $http.post(evaluationServer + '/api/v1/login', loginInfo);
 		    },
-		    getStuEvals: function (evaluationServer, token) {
+		    getStuEvals: function (token) {
 		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
 		    	return $http.get(evaluationServer + '/api/v1/my/evaluations');
 		    },
-		    getTemplates: function(evaluationServer, token) {
+		    getTemplates: function(token) {
 		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + '/api/v1/evaluationtemplates');
 			},
-			getTemplate: function (id, evaluationServer, token) {
+			getTemplate: function (id, token) {
 				$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + 'api/v1/evaluationtemplates/' + id);
 			},
-			postTemplate: function (template, evaluationServer, token) {
+			postTemplate: function (template, token) {
 				$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.post(evaluationServer + "api/v1/evaluationtemplates", template);
 			},
-			getTeachers: function (course, semester, evaluationServer, token){
+			getCourseTeachers: function (course, semester, token) {
 				$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + "api/v1/courses/" + course + "/" + semester + "/teachers");
 			},
+			getCourseEval: function (course, semester, evalID) {
+				$http.defaults.headers.common.Authorization = 'Basic ' + token;
+				return $http.get(evaluationServer + "api/v1/courses/" + course + "/" + semester + "/evaluations/" + evalID);	
+			},
+			postCourseEval: function (course, semester, evalID, evalObj) {
+				$http.defaults.headers.common.Authorization = 'Basic ' + token;
+				return $http.post(evaluationServer + "api/v1/courses/" + course + "/"semester"/evaluations/" + evalID, evalObj);	
+			}
 		};
 	}
 ])
