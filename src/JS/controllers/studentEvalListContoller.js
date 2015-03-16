@@ -31,4 +31,10 @@ angular.module('RuCourseEvaluator').controller("studentEvalListController", [
 			$http.defaults.headers.common.Authorization = 'Basic ' + '';
 			$location.path('/login');
 		};
+
+		$scope.logout = function () {
+			sessionCookie.set('','','','');
+			$http.defaults.headers.common.Authorization = 'Basic ' + '';
+			$location.path('/login');
+		};
 }]);
