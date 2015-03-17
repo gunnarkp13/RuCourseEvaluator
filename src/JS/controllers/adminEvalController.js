@@ -16,6 +16,7 @@ angular.module('RuCourseEvaluator').controller('adminEvalController', [
   		$scope.templateID = '';
   		$scope.templates = [];
   		$scope.errorMessage = '';
+      $scope.message = 'Velja forsniðið kennslumat';
 
   		serverResource.getTemplates(sessionCookie.getToken())
   		.success(function (response) {
@@ -32,7 +33,8 @@ angular.module('RuCourseEvaluator').controller('adminEvalController', [
   			$scope.TemplateID = $routeParams.evalObj.TemplateID;
   		}
 
-  		$scope.setTemplate = function (tempID) {
+  		$scope.setTemplate = function (tempID, tempName) {
+        $scope.message = tempID + " " + tempName;
   			$scope.templateID = tempID;
   		};
 

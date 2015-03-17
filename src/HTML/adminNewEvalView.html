@@ -1,13 +1,14 @@
 <div class="container">
-	<div>
-		<label for="startTime">opna</label>
-		<input type="datetime-local" ng-model="times.startTime" id="startTime" placeholder="byrjunartími" />
-	</div>
-	<div>
-		<label for="endTime">loka</label>
-		<input type="datetime-local" ng-model="times.endTime" id="endTime" placeholder="endatími" />
-	</div>	
-<!-- 
+	<div class="row">
+		<div class="col-md-3">
+				<label for="startTime">opna</label>
+				<input type="datetime-local" ng-model="times.startTime" id="startTime" />
+		</div>
+		<div class="col-md-3">
+			<label for="endTime">loka</label>
+			<input type="datetime-local" ng-model="times.endTime" id="endTime" />
+		</div>
+<!-- fengum þetta ekki til að virka
 	<div class='col-md-7'>
 		<div class="form-group">
 			<div class='input-group date' id='datetimepicker6'>
@@ -28,21 +29,22 @@
 			</div>
 		</div>
 	</div> -->
-	<div class="btn-group">
-        <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Sækja forsniðið kennslumat<span class="caret"></span></button>
-        <ul class="dropdown-menu">
-        	<div class="templateList">
-				<li ng-repeat="template in templates">
-					<div class="row">
-						<div class="col-md-1"></div>
-						<div class="evalList col-md-11" ng-click="setTemplate(template.ID)">
-							{{template.ID}}: {{template.Title}}
+		<div class="btn-group col-md-6">
+	        <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">{{message}}<span class="caret"></span></button>
+	        <ul class="dropdown-menu">
+	        	<div class="templateList">
+					<li ng-repeat="template in templates">
+						<div class="row">
+							<div class="col-md-1"></div>
+							<div class="evalList col-md-11" ng-click="setTemplate(template.ID, template.Title)">
+								{{template.ID}}: {{template.Title}}
+							</div>
 						</div>
-					</div>
-				</li>
-			</div>
-        </ul>
-    </div>
+					</li>
+				</div>
+	        </ul>
+	    </div>
+	</div>
 	<div>
 		<div class="btn" ng-click="submitEval()"> 
 			leggja fyrir 
