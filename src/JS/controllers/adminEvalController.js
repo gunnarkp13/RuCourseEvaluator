@@ -58,7 +58,6 @@ angular.module('RuCourseEvaluator').controller('adminEvalController', [
   		};
 
   		$scope.back = function () {
-  			console.log("bakka");
   			$location.path('/admin');
   		};
 	}
