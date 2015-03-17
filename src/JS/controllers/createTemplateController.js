@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('RuCourseEvaluator').controller("createTemplateController",[
 	'$scope',
 	'$location',

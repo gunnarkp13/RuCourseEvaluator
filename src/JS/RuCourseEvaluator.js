@@ -52,52 +52,52 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 	'evaluationServer',
 	function ($http, evaluationServer) {
 		return {
-			login: function (loginInfo) {
+			login: function (loginInfo) { 															/**/
 				return $http.post(evaluationServer + '/api/v1/login', loginInfo);
 		    },
-		    getMyCourses: function (token) {
+		    getMyCourses: function (token) { 														/**/
 				$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + "api/v1/my/courses/");	
 			},
-		    getMyEvals: function (token) {
+		    getMyEvals: function (token) { 															/**/
 		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
 		    	return $http.get(evaluationServer + '/api/v1/my/evaluations');
 		    },
-		    postEval: function (evalObj, token) {
+		    postEval: function (evalObj, token) { 													/**/
 		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
 		    	return $http.post(evaluationServer + '/api/v1/evaluations', evalObj);
 		    },
-			getEvals: function(token) {
+			getEvals: function(token) { 															/**/
 		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + '/api/v1/evaluations');
 			},
-		    getEval: function(id, token) {
+		    getEval: function(id, token) { 															/**/
 		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + '/api/v1/evaluations' + id);
 			},
-			getTemplates: function(token) {
+			getTemplates: function(token) { 														/**/
 		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + '/api/v1/evaluationtemplates');
 			},
-			getTemplate: function (id, token) {
+			getTemplate: function (id, token) { 													/**/
 				$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + 'api/v1/evaluationtemplates/' + id);
 			},
-			postTemplate: function (template, token) {
+			postTemplate: function (template, token) { 												/**/
 				$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.post(evaluationServer + "api/v1/evaluationtemplates", template);
 			},
-			getCourseTeachers: function (course, semester, token) {
+			getCourseTeachers: function (course, semester, token) { 								/**/
 				$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + "api/v1/courses/" + 
 				 					course + "/" + semester + "/teachers");
 			},
-			getCourseEval: function (course, semester, evalID, token) {
+			getCourseEval: function (course, semester, evalID, token) { 							/**/
 				$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + "api/v1/courses/" +
 				 					course + "/" + semester + "/evaluations/" + evalID);	
 			},
-			postCourseEval: function (course, semester, evalID, evalObj, token) {
+			postCourseEval: function (course, semester, evalID, evalObj, token) {					/**/
 				$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.post(evaluationServer + "api/v1/courses/" + 
 									course + "/" + semester + "/evaluations/" + evalID, evalObj);	

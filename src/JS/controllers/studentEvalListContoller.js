@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('RuCourseEvaluator').controller("studentEvalListController", [
 	'$scope',
 	'$location',
