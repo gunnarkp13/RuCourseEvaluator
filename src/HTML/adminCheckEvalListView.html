@@ -1,19 +1,15 @@
 
-    <div id="Templates List" class="col-md-12">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                List of Templates
-            </div>
-            	<div class="container">
-					<div ng-repeat="evalObj in templist">
-						<div class="row">
-							<div class="col-md-2"></div>
-							<div class="evalList list-group-item col-md-8" ng-click="useTemplate(evalObj)">
-								{{evalObj.ID}}  {{evalObj.Title}}  {{evalObj.TitleEN}}
-							</div>
-							
-						</div>
-					</div>
+<div class="container">
+	<ul>
+		<li ng-repeat="evalObj in templist">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="evalList list-group-item col-md-8" ng-click="useTemplate(evalObj)">
+					{{evalObj.ID}}  {{evalObj.Title}}  {{evalObj.TitleEN}}
 				</div>
-        </div>
-    </div>
+			</div>
+		</li>
+	</ul>
+</div>
+     
+     
