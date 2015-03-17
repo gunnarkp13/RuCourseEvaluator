@@ -21,7 +21,7 @@ angular.module('RuCourseEvaluator').controller("adminEvalListController", [
 				console.log("error!!");
 			});
 		} else {
-			$location.path('/login');
+			$location.path('/admin');
 		}
 
 	}
