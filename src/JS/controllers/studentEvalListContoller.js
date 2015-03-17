@@ -13,7 +13,7 @@ angular.module('RuCourseEvaluator').controller("studentEvalListController", [
 		$scope.evaluations = [];
 		$scope.errorMessage = '';
 		
-		serverResource.getStuEvals(sessionCookie.getToken())
+		serverResource.getMyEvals(sessionCookie.getToken())
 		.success(function (response) {
 			console.log("success");
 			console.log(response);
