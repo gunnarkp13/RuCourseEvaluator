@@ -13,8 +13,6 @@ angular.module('RuCourseEvaluator').controller('adminEvalController', [
   			"startTime": new Date(),
   			"endTime": new Date()
   		};
-  		//$scope.startTime = new Date();
-  		//$scope.endTime = new Date();
   		$scope.templateID = '';
   		$scope.templates = [];
   		$scope.errorMessage = '';
@@ -34,35 +32,21 @@ angular.module('RuCourseEvaluator').controller('adminEvalController', [
   			$scope.TemplateID = $routeParams.evalObj.TemplateID;
   		}
 
-  		$scope.$watch('times.startTime', function(newVal, oldVal, scope){
-  			console.log("watch  " + newVal + "  " + oldVal);
-  			
-  				scope.startTime = newVal;
-
-  		}, true);
-
   		$scope.setTemplate = function (tempID) {
   			$scope.templateID = tempID;
   		};
 
   		$scope.submitEval = function () {
-  			console.log("startTime " + $scope.times.startTime);
-  			console.log("endTime " + $scope.times.endTime);
-  			console.log("tempID " + $scope.templateID);
   			var tmpTime = $scope.times.startTime.toISOString();
   			var tmpTime2 = $scope.times.endTime.toISOString();
-  			console.log("tmpTime " + tmpTime);
-  			console.log("tmpTime2 " + tmpTime2);
-  			var tmpID = $scope.templateID;
-  			tmpID = parseInt(tmpID);
-  			console.log("tmpID = " + tmpID);
+  			var tmpID = parseInt($scope.templateID);
 
   			var evalObj = {
   				"TemplateID": tmpID,
   				"StartDate": tmpTime,
   				"EndDate": tmpTime2 
   			};
-  			console.log("sending msgobj  " + evalObj);
+
   			serverResource.postEval(evalObj, sessionCookie.getToken())
   			.success(function (response) {
   				console.log("success");
@@ -71,6 +55,11 @@ angular.module('RuCourseEvaluator').controller('adminEvalController', [
   			.error(function (response) {
   				$scope.errorMessage = "Evaluation not submitted - something went wrong !";
   			});
+  		};
+
+  		$scope.back = function () {
+  			console.log("bakka");
+  			$location.path('/admin');
   		};
 	}
 ]);
