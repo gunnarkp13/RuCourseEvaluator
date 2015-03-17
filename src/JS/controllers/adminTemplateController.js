@@ -26,8 +26,9 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 		
 
 		if(tempID !== undefined ) {
-			serverResource.getTemplate(tempID, sessionCookie.getToken)
+			serverResource.getTemplate(tempID, sessionCookie.getToken())
 			.success(function (response) {
+				console.log(Object.keys(response));
 				$scope.templateID = response.ID;
 				$scope.TemplateTitle = response.Title;
 				$scope.TemplateTitleEN = response.TitleEN;
@@ -35,11 +36,12 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 				$scope.courseQuestions = response.CourseQuestions;
 				$scope.introText = response.IntroText;
 				$scope.introTextEN = response.IntroTextEN;
+			})
+			.error(function (response) {
+				console.log("error");
 			});
 
 			
-			console.log("gott");
-			console.log($scope.TemplateTitle);
 		}	
 
 		$scope.addQuestion = function(sType, qType ) {
