@@ -11,7 +11,6 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 	'sessionCookie', 
 	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, serverResource, sessionCookie) {
 		
-		var tempID = $routeParams.tempObj;
 		$scope.teacherQuestions = [];
 		$scope.courseQuestions = [];
 		$scope.templateID = '';
@@ -23,10 +22,8 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 		console.log("nanan");
 		console.log(Object.keys($routeParams.tempObj));
 
-		
-
-		if(tempID !== undefined ) {
-			serverResource.getTemplate(tempID, sessionCookie.getToken())
+		if($routeParams.tempObj !== undefined ) {
+			serverResource.getTemplate($routeParams.tempObj, sessionCookie.getToken())
 			.success(function (response) {
 				console.log(Object.keys(response));
 				$scope.templateID = response.ID;
