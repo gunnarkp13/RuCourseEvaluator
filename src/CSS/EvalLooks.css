@@ -3,6 +3,10 @@ body {
     /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+.navbar {
+    background-color: red;
+}
+
 .image {
     padding-left: 60px;
     padding-bottom: 30px;
