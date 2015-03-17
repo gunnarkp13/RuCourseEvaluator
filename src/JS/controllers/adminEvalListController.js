@@ -14,7 +14,7 @@ angular.module('RuCourseEvaluator').controller("adminEvalListController", [
 			serverResource.getEvals(sessionCookie.getToken())
 			.success(function (response) {
 				$scope.evalList = response;
-				console.log("success");
+				console.log("success turbo");
 				console.log(response);	
 			})
 			.error(function (response) {

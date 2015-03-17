@@ -15,17 +15,11 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 		$scope.templateID = '';
 		$scope.TemplateTitle = '';
 		$scope.TemplateTitleEN = '';
-		$scope.StartDate = '';
-		$scope.EndDate = '';
-		$scope.Status = '';
 
 		if($routeParams.evalObj !== undefined) {
 			$scope.templateID = evalObj.templateID;
 			$scope.TemplateTitle = evalObj.TemplateTitle;
-			$scope.TemplateTitleEN = evalObj.TemplateTitleEN;
-			$scope.StartDate = evalObj.StartDate;
-			$scope.EndDate = evalObj.EndDate;
-			$scope.Status = evalObj.Status;			
+			$scope.TemplateTitleEN = evalObj.TemplateTitleEN;		
 		}
 	}
 ]);
