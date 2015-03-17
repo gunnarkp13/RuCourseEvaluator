@@ -30,6 +30,8 @@ module.exports = function ( grunt ) {
 	            'bower_components/bootstrap/dist/js/bootstrap.js',
 	            'bower_components/angular/angular.js',
 	            'bower_components/angular-route/angular-route.js',
+	            'bower_components/moment/min/moment-with-locales.js',
+	            'bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js',
 	            'src/js/*.js',
 	            'src/js/controllers/*.js'
     			],
