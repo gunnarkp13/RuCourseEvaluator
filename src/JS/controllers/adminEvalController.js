@@ -63,7 +63,7 @@ angular.module('RuCourseEvaluator').controller('adminEvalController', [
   				"EndDate": tmpTime2 
   			};
   			console.log("sending msgobj  " + evalObj);
-  			serverResource.postEval(evalObj, sessionCookie.getToken)
+  			serverResource.postEval(evalObj, sessionCookie.getToken())
   			.success(function (response) {
   				console.log("success");
   				$location.path('/admin');
