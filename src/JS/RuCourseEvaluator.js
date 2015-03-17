@@ -29,6 +29,14 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 			templateUrl: "src/html/studentEvalListView.html",
 			controller: "studentEvalListController"
 		})
+		.when("/multi", {
+			templateUrl: "src/html/multiChoicePartialView.html",
+			controller: "multiController"
+		})
+		.when("/single", {
+			templateUrl: "src/html/singleChoicePartialView.html",
+			controller: "singleController"
+		})
 		.otherwise({
 			redirectTo: "/login"
 		});

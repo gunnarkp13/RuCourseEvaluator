@@ -1,6 +1,11 @@
 body {
-    padding-top: 70px;
+    padding-top: 100px;
     /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.image {
+    padding-left: 60px;
+    padding-bottom: 30px;
 }
 
 .btn {
@@ -13,8 +18,11 @@ body {
 }
 
 .evalList {
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	border-radius: 5px;
-	margin-top: 5px;
+	margin-top: 7px;
 	background-color: red;
 }
 
@@ -24,9 +32,14 @@ body {
 	cursor: pointer;
 }
 
+.logout:hover {
+	cursor: pointer;
+}
+
 li.no-evalObj {
     display: block;
 }
+
 li + li.no-evalObj {
     display: none;
 }
