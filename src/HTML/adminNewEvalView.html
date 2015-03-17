@@ -28,15 +28,15 @@
 		<li ng-repeat="template in templates">
 			<div class="row">
 					<div class="col-md-2"></div>
-					<div class="evalList list-group-item col-md-8" ng-click="takeEval(evalObj)">
-						{{template}}
+					<div class="evalList list-group-item col-md-8" ng-click="setTemplate(template.ID)">
+						{{template.ID}} {{template.title}}
 					</div>
 				<div class="col-md-2"></div>
 			</div>
 		</li>
 	</div>		
 	<div>
-		<input type="submit" ng-click="submitEval()" value="birta mat">
+		<input class="btn" type="submit" ng-click="submitEval()" value="birta mat">
 	</div>
 
 </div>
