@@ -28,12 +28,6 @@ angular.module('RuCourseEvaluator').controller("studentEvalListController", [
 			$location.path('/studentEval/' + evalObj);
 		};
 
-		$scope.back = function () {
-			sessionCookie.set('','','','');
-			$http.defaults.headers.common.Authorization = 'Basic ' + '';
-			$location.path('/login');
-		};
-
 		$scope.logout = function () {
 			sessionCookie.set('','','','');
 			$http.defaults.headers.common.Authorization = 'Basic ' + '';
