@@ -24,8 +24,8 @@ angular.module('RuCourseEvaluator').controller("adminTemplateListController", [
 			$location.path('/login');
 		}
 
-		$scope.useTemplate = function (evalObj) {
-			$location.path('//' + evalObj);
+		$scope.useTemplate = function (tempObj) {
+			$location.path('/adminNewTemplate/' + tempObj);
 		};
 	}
 ]);
