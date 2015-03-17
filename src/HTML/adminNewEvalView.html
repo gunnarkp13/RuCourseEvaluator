@@ -1,3 +1,59 @@
-<div>
-	stuffs;
+<div class="container">
+	<div class="col-md-7">
+		<div class="form-group">
+			<input type="text" id="courseName" class='form-control' placeholder="Nafn áfanga" />
+		</div>
+	</div>
+	<div class='col-md-7'>
+		<div class="form-group">
+			<div class='input-group date' id='startTime'>
+				<input type='text' class="form-control" placeholder="byrjunartími" />
+				<span class="input-group-addon">
+				<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class='col-md-7'>
+		<div class="form-group">
+			<div class='input-group date' id='endTime'>
+				<input type='text' class="form-control" placeholder="endatími" />
+				<span class="input-group-addon">
+				<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div>
+		<li ng-repeat="template in templates">
+			<div class="row">
+					<div class="col-md-2"></div>
+					<div class="evalList list-group-item col-md-8" ng-click="setTemplate(template.ID)">
+						{{template.ID}} {{template.title}}
+					</div>
+				<div class="col-md-2"></div>
+			</div>
+		</li>
+	</div>		
+	<div>
+		<input class="btn" type="submit" ng-click="submitEval()" value="birta mat">
+	</div>
+
 </div>
+
+
+
+
+
+<script type="text/javascript">
+	$(function () {
+		$('#startTime').datetimepicker();
+		$('#endTime').datetimepicker();
+		$("#startTime").on("dp.change",function (e) {
+			$('#endTime').data("DateTimePicker").minDate(e.date);
+		});
+		$("#endTime").on("dp.change",function (e) {
+			$('#startTime').data("DateTimePicker").maxDate(e.date);
+		});
+	});
+</script>

@@ -25,6 +25,10 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 			templateUrl: "src/html/adminNewTemplateView.html",
 			controller: "adminTemplateController"
 		})
+		.when("/adminNewTemplate/:tempObj", {
+			templateUrl: "src/html/adminNewTemplateView.html",
+			controller: "adminTemplateController"
+		})
 		.when("/adminEvalList",{
 			templateUrl: "src/html/adminEvalListView.html",
 			controller: "adminEvalListController"

@@ -10,16 +10,16 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 	'serverResource',
 	'sessionCookie', 
 	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, serverResource, sessionCookie) {
-		var evalObj = $routeParams.evalObj;
+		var tempObj = $routeParams.tempObj;
 		$scope.questions = [];
 		$scope.templateID = '';
 		$scope.TemplateTitle = '';
 		$scope.TemplateTitleEN = '';
 
-		if($routeParams.evalObj !== undefined) {
-			$scope.templateID = evalObj.templateID;
-			$scope.TemplateTitle = evalObj.TemplateTitle;
-			$scope.TemplateTitleEN = evalObj.TemplateTitleEN;		
+		if($routeParams.tempObj !== undefined) {
+			$scope.templateID = tempObj.templateID;
+			$scope.TemplateTitle = tempObj.TemplateTitle;
+			$scope.TemplateTitleEN = tempObj.TemplateTitleEN;		
 		}
 	}
 ]);
