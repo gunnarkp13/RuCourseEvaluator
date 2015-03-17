@@ -6,13 +6,13 @@ angular.module('RuCourseEvaluator').controller("adminCheckEvalListController", [
 	'serverResource',
 	'sessionCookie',
 	function ($scope, $location, $http, evaluationServer, serverResource, sessionCookie) {
-		var templist = [];
+		$scope.templist = [];
 		console.log(sessionCookie.getToken());
 
 		if (sessionCookie.getRole() === 'admin') {
 			serverResource.getTemplates(sessionCookie.getToken())
 			.success(function (response) {
-				templist = response;
+				$scope.templist = response;
 				console.log("success");
 				console.log(response);	
 			})
