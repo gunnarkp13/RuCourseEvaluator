@@ -6,8 +6,8 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 	function ($routeProvider) {
 		$routeProvider
 		.when("/editEval/:evalObj", {
-			templateUrl: "src/html/adminCreateTemplateView.html",
-			controller:  "createTemplateController"
+			templateUrl: "",
+			controller:  ""
 		})
 		.when("/studentEval/:evalObj", {
 			templateUrl: "src/html/studentEvaluationView.html",
@@ -34,7 +34,7 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 			controller: "adminEvalController"
 		})
 		.when('/adminTempList',{
-			templateUrl: "src/html/templateView.html",
+			templateUrl: "src/html/adminTemplateListView.html",
 			controller: "adminTemplateListController"
 		})
 		.when("/student", {
