@@ -1,44 +1,58 @@
 <div class="container">
-	<div class="col-md-7">
-		<div class="form-group">
-			<input type="text" id="courseName" class='form-control' placeholder="Nafn áfanga" />
-		</div>
-	</div>
-	<div class='col-md-7'>
-		<div class="form-group">
-			<div class='input-group date' id='startTime'>
-				<input type='text' class="form-control" placeholder="byrjunartími" />
-				<span class="input-group-addon">
-				<span class="glyphicon glyphicon-calendar"></span>
-				</span>
-			</div>
-		</div>
-	</div>
-	<div class='col-md-7'>
-		<div class="form-group">
-			<div class='input-group date' id='endTime'>
-				<input type='text' class="form-control" placeholder="endatími" />
-				<span class="input-group-addon">
-				<span class="glyphicon glyphicon-calendar"></span>
-				</span>
-			</div>
-		</div>
+	<div>
+		<label for="startTime">opna</label>
+		<input type="datetime-local" ng-model="times.startTime" id="startTime" placeholder="byrjunartími" />
 	</div>
 	<div>
-		<li ng-repeat="template in templates">
-			<div class="row">
-					<div class="col-md-2"></div>
-					<div class="evalList list-group-item col-md-8" ng-click="setTemplate(template.ID)">
-						{{template.ID}} {{template.title}}
+		<label for="endTime">loka</label>
+		<input type="datetime-local" ng-model="times.endTime" id="endTime" placeholder="endatími" />
+	</div>	
+<!-- 
+	<div class='col-md-7'>
+		<div class="form-group">
+			<div class='input-group date' id='datetimepicker6'>
+				<input type='text' class="form-control" placeholder="byrjunartími" ng-model="times.startTime" required/>
+				<span class="input-group-addon">
+				<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class='col-md-7'>
+		<div class="form-group">
+			<div class='input-group date' id='datetimepicker7'>
+				<input type='text' class="form-control" placeholder="endatími" ng-model="times.endTime" required/>
+				<span class="input-group-addon">
+				<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+			</div>
+		</div>
+	</div> -->
+	<div class="btn-group">
+        <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Sækja forsniðið kennslumat<span class="caret"></span></button>
+        <ul class="dropdown-menu">
+        	<div class="templateList">
+				<li ng-repeat="template in templates">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="evalList col-md-11" ng-click="setTemplate(template.ID)">
+							{{template.ID}}: {{template.Title}}
+						</div>
 					</div>
-				<div class="col-md-2"></div>
+				</li>
 			</div>
-		</li>
-	</div>		
+        </ul>
+    </div>
 	<div>
-		<input class="btn" type="submit" ng-click="submitEval()" value="birta mat">
+		<div class="btn" ng-click="submitEval()"> 
+			leggja fyrir 
+		</div>
 	</div>
-
+	<div>
+		<div class="btn" ng-click="back()">
+			bakka
+		</div>
+	</div>
 </div>
 
 
@@ -47,13 +61,13 @@
 
 <script type="text/javascript">
 	$(function () {
-		$('#startTime').datetimepicker();
-		$('#endTime').datetimepicker();
-		$("#startTime").on("dp.change",function (e) {
-			$('#endTime').data("DateTimePicker").minDate(e.date);
+		$('#datetimepicker6').datetimepicker();
+		$('#datetimepicker7').datetimepicker();
+		$("#datetimepicker6").on("dp.change",function (e) {
+			$('#datetimepicker7').data("DateTimePicker").minDate(e.date);
 		});
-		$("#endTime").on("dp.change",function (e) {
-			$('#startTime').data("DateTimePicker").maxDate(e.date);
+		$("#datetimepicker7").on("dp.change",function (e) {
+			$('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
 		});
 	});
 </script>

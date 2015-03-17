@@ -18,17 +18,12 @@ body {
 }
 
 .evalList {
-	text-align: center;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	border-radius: 5px;
-	margin-top: 7px;
-	background-color: red;
+	margin-top: 3px;
+	margin-bottom: 3px;
 }
 
 .evalList:hover {
-	background-color: #D81920;
-	box-shadow: 0px 0px 5px -1px rgba(0,0,0,1);
+	background-color: #EEEEEE;
 	cursor: pointer;
 }
 
@@ -48,91 +43,14 @@ li {
 	list-style: none;
 }
 
-/******************************
-*  fengið af stack overflow   *
-*  notað til að gera submenu  *
-*  í dropdown lista           *
-*******************************/
-.dropdown-submenu {
-    position:relative;
+.templateList {
+	float: left;
+	width: 200px;
+	height: 300px;
+	overflow: auto;
+	-webkit-overflow: auto;
+	overflow-x:hidden;
+	border-bottom-right-radius: 0.8%;
+	border-bottom-left-radius: 0.8%;  
 }
 
-.dropdown-menu {
-	top:0;
-    left:50%;
-    margin-top:-6px;
-    margin-left:-1px;
-    -webkit-border-radius:0 6px 6px 6px;
-    -moz-border-radius:0 6px 6px 6px;
-    border-radius:0 6px 6px 6px;
-}
-
-.dropdown-menu li a {
-	color: #fff;
-	background-color: red;
-}
-
-.dropdown-menu li a:hover {
-	background-color: #D81920;
-}
-
-.dropdown-submenu>.dropdown-menu {
-    top:0;
-    left:101%;
-    margin-top:-6px;
-    margin-left:-1px;
-    -webkit-border-radius:0 6px 6px 6px;
-    -moz-border-radius:0 6px 6px 6px;
-    border-radius:0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-    display:block;
-}
-.dropdown-submenu>a:after {
-    display:block;
-    content:" ";
-    float:right;
-    width:0;
-    height:0;
-    border-color:transparent;
-    border-style:solid;
-    border-width:5px 0 5px 5px;
-    border-left-color:#cccccc;
-    margin-top:5px;
-    margin-right:-10px;
-}
-.dropdown-submenu:hover>a:after {
-    border-left-color:#ffffff;
-}
-.dropdown-submenu.pull-left {
-    float:none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-    left:-100%;
-    margin-left:10px;
-    -webkit-border-radius:6px 0 6px 6px;
-    -moz-border-radius:6px 0 6px 6px;
-    border-radius:6px 0 6px 6px;   
-}
-
-.rightMenu {
-    position:relative;
-    float:right;
-}
-
-.right-caret {
-    border-bottom: 4px solid transparent;
-    border-top: 4px solid transparent;
-    border-left: 4px solid #000000;
-    display: inline-block;
-    height: 0;
-    opacity: 1;
-    vertical-align: top;
-    width: 0;
-}
-
-.right {
-    float:right;
-}
-
-/************************************************/

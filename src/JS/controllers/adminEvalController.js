@@ -1,16 +1,19 @@
 "use strict";
 
 angular.module('RuCourseEvaluator').controller('adminEvalController', [ 
-  '$scope', 
+  '$scope',
+  '$rootScope', 
   '$location',
   '$http',
   '$routeParams',
   'serverResource',
   'sessionCookie',
-  function ($scope, $location, $http, $routeParams, serverResource, sessionCookie) { 
-  		$scope.startTime = 0;
-  		$scope.endTime = 0;
-  		$scope.templateID = 0;
+  function ($scope, $rootScope, $location, $http, $routeParams, serverResource, sessionCookie) { 
+  		$scope.times = {
+  			"startTime": new Date(),
+  			"endTime": new Date()
+  		};
+  		$scope.templateID = '';
   		$scope.templates = [];
   		$scope.errorMessage = '';
 
@@ -24,8 +27,8 @@ angular.module('RuCourseEvaluator').controller('adminEvalController', [
   		});
 
   		if ($routeParams.evalObj !== undefined ) {
-  			$scope.startTime = $routeParams.evalObj.startTime;
-  			$scope.endTime = $routeParams.evalObj.endTime;
+  			$scope.times.startTime = $routeParams.evalObj.startTime;
+  			$scope.times.endTime = $routeParams.evalObj.endTime;
   			$scope.TemplateID = $routeParams.evalObj.TemplateID;
   		}
 
@@ -34,13 +37,17 @@ angular.module('RuCourseEvaluator').controller('adminEvalController', [
   		};
 
   		$scope.submitEval = function () {
+  			var tmpTime = $scope.times.startTime.toISOString();
+  			var tmpTime2 = $scope.times.endTime.toISOString();
+  			var tmpID = parseInt($scope.templateID);
+
   			var evalObj = {
-  				"TemplateID": $scope.templateID,
-  				"startDate": $scope.startTime.toISOString(),
-  				"EndDate": $scope.endTime.toISOString() 
+  				"TemplateID": tmpID,
+  				"StartDate": tmpTime,
+  				"EndDate": tmpTime2 
   			};
 
-  			serverResource.postEval(evalObj, sessionCookie.getToken)
+  			serverResource.postEval(evalObj, sessionCookie.getToken())
   			.success(function (response) {
   				console.log("success");
   				$location.path('/admin');
@@ -48,6 +55,10 @@ angular.module('RuCourseEvaluator').controller('adminEvalController', [
   			.error(function (response) {
   				$scope.errorMessage = "Evaluation not submitted - something went wrong !";
   			});
+  		};
+
+  		$scope.back = function () {
+  			$location.path('/admin');
   		};
 	}
 ]);
