@@ -1,4 +1,34 @@
 <div class="container">
+	<div class="btn-group-vertical">
+        <div class="btn-group">
+            <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Möt <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li>
+                	<div class="btn btn-lg btn-primary" ng-click="getEvaluations()">Skoða Möt</div>
+                </li>
+                <li>
+                	<div class="btn btn-lg btn-primary " ng-click="newEvaluation">Gera nýtt mat</div>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-group">
+            <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Template <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li>
+                	<div ng-click="getTemplateList()">Skoða Template</div>
+                </li>
+                <li>
+                	<div ng-click="createTemplate()">Gera nýtt template</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="container">
 	<div class="row">
 	    <div class="col-md-4"></div>
 	    <div class="col-md-4 btn btn-lg btn-primary dropdown">
@@ -8,10 +38,10 @@
 	        </div>
 	        <ul class="dropdown-menu rightMenu multi-level" role="menu" aria-labelledby="dropdownMenu1">
 	            <li class="dropdown-submenu" role="presentation">
-	                <div class="btn btn-lg btn-primary " role="menuitem" tabindex="-1" ng-click="createTemplate()">Gera nýtt mat</div>
+	                <div class="btn btn-lg btn-primary " role="menuitem" tabindex="-1" ng-click="createTemplate()">Gera nýtt template</div>
 	            </li>
 	            <li class="dropdown-submenu" role="presentation">
-	                <div class="btn btn-lg btn-primary" role="menuitem" ng-click="getTemplateList()">Nota template</div>
+	                <div class="btn btn-lg btn-primary" role="menuitem" ng-click="getTemplateList()">Skoða Template</div>
 	            </li>
 	        </ul>
 	    </div>
@@ -24,4 +54,4 @@
 	        </div>
 	    <div class="col-md-4"></div>
 	</div>
-</div>
+</div> -->

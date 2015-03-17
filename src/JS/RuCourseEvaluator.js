@@ -21,13 +21,21 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 			templateUrl: "src/html/adminHomeView.html",
 			controller: "adminController"
 		})
-		.when("/admin/createTemplate", {
-			templateUrl: "src/html/adminCreateTemplateView.html",
-			controller: "createTemplateController"
+		.when("/adminNewTemplate", {
+			templateUrl: "src/html/adminNewTemplateView.html",
+			controller: "adminTemplateController"
 		})
-		.when("/adminList",{
-			templateUrl: "src/html/adminCheckEvalListView.html",
-			controller: "adminCheckEvalListController"
+		.when("/adminEvalList",{
+			templateUrl: "src/html/adminEvalListView.html",
+			controller: "adminEvalListController"
+		})
+		.when('/adminNewEval',{
+			templateUrl: "src/html/adminNewEvalView.html",
+			controller: "adminEvalController"
+		})
+		.when('/adminTempList',{
+			templateUrl: "src/html/templateView.html",
+			controller: "adminTemplateListController"
 		})
 		.when("/student", {
 			templateUrl: "src/html/studentEvalListView.html",

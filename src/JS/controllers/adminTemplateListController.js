@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('RuCourseEvaluator').controller("adminCheckEvalListController", [
+angular.module('RuCourseEvaluator').controller("adminTemplateListController", [
 	'$scope',
 	'$location',
 	'$http',
@@ -9,7 +9,6 @@ angular.module('RuCourseEvaluator').controller("adminCheckEvalListController", [
 	'sessionCookie',
 	function ($scope, $location, $http, evaluationServer, serverResource, sessionCookie) {
 		$scope.templist = [];
-		console.log(sessionCookie.getToken());
 
 		if (sessionCookie.getRole() === 'admin') {
 			serverResource.getTemplates(sessionCookie.getToken())

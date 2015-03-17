@@ -11,14 +11,22 @@ angular.module('RuCourseEvaluator').controller("adminController", [
 	'sessionCookie',
 	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, serverResource, sessionCookie) {
 
-		$scope.getTemplateList = function () {
-			
-			$http.defaults.headers.common.Authorization = 'Basic ' + sessionCookie.getToken();
-			$location.path('/adminList/');
+		$scope.getEvaluations = function ()	{
+			$location.path('/adminEvalList');
+		};
+
+		$scope.newEvaluation = function () {
+			$location.path('/adminNewEval');
+		};	
+
+
+		$scope.getTemplateList = function () {	
+			//$http.defaults.headers.common.Authorization = 'Basic ' + sessionCookie.getToken();
+			$location.path('/adminTempList/');
 		};
 
 		$scope.createTemplate = function () {
-			$location.path('/admin/createTemplate/');
+			$location.path('/adminNewTemplate/');
 		};
 	}
 ]);

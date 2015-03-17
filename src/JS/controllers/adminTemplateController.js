@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('RuCourseEvaluator').controller("createTemplateController",[
+angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 	'$scope',
 	'$location',
 	'$rootScope',
