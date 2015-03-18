@@ -1,40 +1,54 @@
 <div class="container">
-	<div ng-repeat="tQ in teacherQuestions track by $index">
-		<div question>
-			<form>
+	<div ng-repeat="tT in teachers">
+		<div ng-repeat="tQ in teacherQuestions track by $index">
+			<div question>
 				<div ng-if="tQ.Type == 'multiple'">
 					<div t-multi-question></div>
 				</div>
-			</form>
-			<form>
+			
 				<div ng-if="tQ.Type == 'single'">
 					<div t-single-question></div>
 				</div>
-			</form>
-			<form>
 				<div ng-if="tQ.Type == 'text'">
 					<div t-text-question></div>
 				</div>
-			</form>
-		</div>
-	</div>	
-	<div ng-repeat="cQ in courseQuestions track by $index">
-		<div question>
-			<form>
-				<div ng-if="cQ.Type == 'multiple'">
-					<div t-multi-question></div>
-				</div>
-			</form>
-			<form>
-				<div ng-if="cQ.Type == 'single'">
-					<div t-single-question></div>
-				</div>
-			</form>
-			<form>
-				<div ng-if="cQ.Type == 'text'">
-					<div t-text-question></div>
-				</div>
-			</form>
+			</div>
 		</div>
 	</div>
+	<div ng-repeat="cQ in courseQuestions track by $index">
+		<div question>
+			<div ng-if="cQ.Type == 'multiple'">
+				<div t-multi-question></div>
+			</div>
+			<div ng-if="cQ.Type == 'single'">
+				<div t-single-question></div>
+			</div>
+			<div ng-if="cQ.Type == 'text'">
+				<div t-text-question></div>
+			</div>
+		</div>
+	</div>
+		<div ng-repeat="ans in evalQuestions track by $index">
+			<div ng-if="ans.sType == 'teacher'">
+				<h3>{{ans.tFullName}}</h3>
+			</div>
+			<div ng-if="ans.qType == 'text'" >
+				<p>{{ans.qText}}</p>
+				<p>{{ans.qTextEN}}</p>
+				<textarea ng-model="evalQuestions[$parent.$index].Answer"></textarea>
+			</div>
+			<div ng-if="ans.qType == 'multiple'">
+				<div ng-repeat="answ in ans.Answers track by $index"> 
+					<input type="checkbox" value="{{answ.Weight}}" ng-model="ans.Answer">{{ans.qText}}</input>
+				</div>
+			</div>
+
+			<div ng-if="ans.qType == 'single'">
+				<div ng-repeat="answ in ans.Answers track by $index"> 
+					<input type="radio" value="{{answ.Weight}}" name="single[{{ans.ID}}]" ng-model="ans.Answer">{{ans.qText}}</input>
+				</div>
+			</div>				
+		<input type="submit" ng-click="submitEval()" value="skila" />
+	</div>
+
 </div>
