@@ -1,13 +1,14 @@
 <hr>
-<h3>{{quest.Text}}</h3>
+<h3>{{cQ.Text}}</h3>
 <p>Multiple choice</p>
 <div class="btn-group" data-toggle="buttons">
-    <div ng-repeat="AtQ in quest.Answers">
+    <div ng-repeat="AcQ in cQ.Answers">
 		<label class="btn btn-primary">
-			<input type="checkbox" ng-model="" value="">{{AtQ.Text}}</input>
+			<input type="checkbox" ng-model="" value="{{AcQ.}}">{{AcQ.Text}}</input>
 		</label>
 		<label class="btn btn-primary">
-			<input type="checkbox"  value="">{{AtQ.TextEN}}</input>
+			<input type="checkbox"  value="">{{AcQ.TextEN}}</input>
 		</label>
     </div>
 </div>
+

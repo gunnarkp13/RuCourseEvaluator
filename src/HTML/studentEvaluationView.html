@@ -1,37 +1,37 @@
 <div class="container">
-	<div ng-repeat="quest in teacherQuestions track by $index">
+	<div ng-repeat="tQ in teacherQuestions track by $index">
 		<div question>
 			<form>
-				<div ng-if="quest.Type == 'multiple'">
+				<div ng-if="tQ.Type == 'multiple'">
 					<div t-multi-question></div>
 				</div>
 			</form>
 			<form>
-				<div ng-if="quest.Type == 'single'">
+				<div ng-if="tQ.Type == 'single'">
 					<div t-single-question></div>
 				</div>
 			</form>
 			<form>
-				<div ng-if="quest.Type == 'text'">
+				<div ng-if="tQ.Type == 'text'">
 					<div t-text-question></div>
 				</div>
 			</form>
 		</div>
 	</div>	
-	<div ng-repeat="quest in courseQuestions track by $index">
+	<div ng-repeat="cQ in courseQuestions track by $index">
 		<div question>
 			<form>
-				<div ng-if="quest.Type == 'multiple'">
+				<div ng-if="cQ.Type == 'multiple'">
 					<div t-multi-question></div>
 				</div>
 			</form>
 			<form>
-				<div ng-if="quest.Type == 'single'">
+				<div ng-if="cQ.Type == 'single'">
 					<div t-single-question></div>
 				</div>
 			</form>
 			<form>
-				<div ng-if="quest.Type == 'text'">
+				<div ng-if="cQ.Type == 'text'">
 					<div t-text-question></div>
 				</div>
 			</form>
