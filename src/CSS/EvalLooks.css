@@ -18,11 +18,6 @@ input[type="checkbox"]{
 
 .btn {
 	margin-top: 5px;
-	background-color: black;
-}
-
-.btn:hover {
-	background-color: #D81920;
 }
 
 .evalList {
@@ -129,8 +124,6 @@ li {
 
 .panel-primary > .panel-heading {
 	text-align: center;
-	background-color: black;
-	border-color: black;
 }
 
 .evaluations {
@@ -138,6 +131,3 @@ li {
 	height: 500px;
 }
 
-.panel-primary {
-	border-color: black;
-}
