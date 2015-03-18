@@ -158,3 +158,4 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 		};
 	}
 ]);
+

@@ -1,15 +1,36 @@
 <div class="container">
-	<div ng-repeat="tQ in teacherQuestions track by $index">
+	<div ng-repeat="quest in teacherQuestions track by $index">
+		<div question></div>
+	</div>	
+	<div ng-repeat="quest in courseQuestions track by $index">
+		<div question></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <hr>
         <div ng-if="tQ.Type == 'text'">
-
-        	
 				<!--Spurning-->
 				<h3>{{tQ.Text}}</h3>
 				<form role="form">
 					<div class="form-group">
 						<label for="name">Text Area</label>
-						<textarea class="form-control" name="tQID" ng-model="tQ.ID" rows="3"></textarea>
+						<textarea class="form-control" ng-model="teacherQuestions[$index].ID" rows="3"></textarea>
 					</div>
 				</form>
 			

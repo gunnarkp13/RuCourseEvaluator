@@ -30,13 +30,7 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 					for (var cQ in response['CourseQuestions']) {
 						$scope.courseQuestions.push(response['CourseQuestions'][cQ]);
 					}
-					return {
-						restrict: "E",
-						scope: {
-							ngModel: "="
-						},
-						templateUrl: "studentEvaluationView.html",
-					};
+					
 				})
 				.error(function (response) {
 					console.log("something went wrong: " + response);
@@ -50,4 +44,18 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 			$location.path('/student');
 		};
 	}
-]);
+])
+.directive("question", function(){
+	return {
+		restrict: "E",
+		scope: {
+			ngModel: "="
+		},
+		//templateUrl: "studentEvaluationView.html",
+		link: function(scope, element, attributes) {
+			if(scope.question.Type === "multiple") {
+				templateUrl: 'multiChoicePartialView.html';
+			}
+		}
+	};
+});
