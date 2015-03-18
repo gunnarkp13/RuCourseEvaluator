@@ -54,13 +54,19 @@ li {
 	border-bottom-left-radius: 0.8%;  
 }
 
-.panel-heading{
+.panel-primary > .panel-heading {
 	text-align: center;
+	background-color: red;
+	border-color: red;
 }
 
 .evaluations {
 	overflow: auto;
 	height: 500px;
+}
+
+.panel-primary {
+	border-color: red;
 }
 
 
