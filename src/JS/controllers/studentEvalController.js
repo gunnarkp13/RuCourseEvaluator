@@ -47,50 +47,55 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 ])
 .directive('tMultiQuestion', [
 	function () {
+		console.log("tMultiQuestion");
 		return {
     		restrict: 'A',
-    		templateUrl: 'tMultiQuestion.html' 
-		}
+    		templateUrl: 'src/html/tMultiQuestion.html'
+		};
 	}
 ])
 .directive('tSingleQuestion', [
 	function () {
+		console.log("tSingleQuestion");
 		return {
     		restrict: 'A',
-    		templateUrl: 'tSingleQuestion.html'
- 		}
+    		templateUrl: 'src/html/tSingleQuestion.html'
+ 		};
 	}
 ])
 .directive('tTextQuestion', [
 	function () {
+		console.log("tTextQuestion");
 		return {
     		restrict: 'A',
-    		templateUrl: 'tTextQuestion.html'
-  		}
+    		templateUrl: 'src/html/tTextQuestion.html'
+  		};
 	}
 ])
 .directive('cMultiQuestion', [
 	function () {
+		console.log("cMultiQuestion");
 		return {
     		restrict: 'A',
-    		templateUrl: 'cMultiQuestion.html'
-		}
+    		templateUrl: 'src/html/cMultiQuestion.html'
+		};
 	}
 ])
 .directive('cSingleQuestion', [
 	function () {
+		console.log("cSingleQuestion");
 		return {
     		restrict: 'A',
-    		templateUrl: 'cSingleQuestion.html'
- 		}
+    		templateUrl: 'src/html/cSingleQuestion.html'
+ 		};
 	}
 ])
 .directive('cTextQuestion', [
 	function () {
 		return {
     		restrict: 'A',
-    		templateUrl: 'cTextQuestion.html'
-  		}
+    		templateUrl: 'src/html/cTextQuestion.html'
+  		};
 	}
 ]);
 

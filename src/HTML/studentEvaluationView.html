@@ -1,162 +1,28 @@
 <div class="container">
 	<div ng-repeat="quest in teacherQuestions track by $index">
-		<div question></div>
+		<div question>
+			<div ng-if="quest.Type == 'multiple'">
+				<div t-multi-question></div>
+			</div>
+			<div ng-if="quest.Type == 'single'">
+				<div t-single-question></div>
+			</div>
+			<div ng-if="quest.Type == 'text'">
+				<div t-text-question></div>
+			</div>
+		</div>
 	</div>	
 	<div ng-repeat="quest in courseQuestions track by $index">
-		<div question></div>
-	</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <hr>
-        <div ng-if="tQ.Type == 'text'">
-				<!--Spurning-->
-				<h3>{{tQ.Text}}</h3>
-				<form role="form">
-					<div class="form-group">
-						<label for="name">Text Area</label>
-						<textarea class="form-control" ng-model="teacherQuestions[$index].ID" rows="3"></textarea>
-					</div>
-				</form>
-			
-		<!--	<div ng-if="tQ.TextEN == true"> ENSKA
-				Spurning á ensku
-				<p>{{tQ.TextEN}}</p>
-				<form role="form">
-					<div class="form-group">
-						<label for="name">Text Area</label>
-						<textarea class="form-control" rows="3"></textarea>
-					</div>
-				</form>
-			</div>-->
-        </div>
-    <div ng-if="tQ.Type == 'multiple'">
-        <hr>
-        <!--Spurning-->
-        <h3>{{tQ.Text}}</h3>
-        <p>Multiple choice</p>
-        <div class="btn-group" data-toggle="buttons">
-	        <div ng-repeat="AtQ in tQ.Answers">
-				<!--svör-->
-				<label class="btn btn-primary">
-					<input type="checkbox">{{AtQ.Text}}
-				</label>
-				<!--<label for="TextEN[{{AtQ.ID}}]">answer</label>
-				{{AtQ.TextEN}}
-				<label for="Url[{{AtQ.ID}}]">Image URL</label>
-				<input type="text" name="Url[{{AtQ.ID}}]" ng-model="Url[AtQ.ID]" value="{{AtQ.ImageURL}}" paceholder="{{AtQ.ImageURL}}" />
-				<label for="Weight[{{AtQ.ID}}]">Weight value 1 - 5</label>
-				<input type="text" name="Weight[{{AtQ.ID}}]" ng-model="Weight[AtQ.ID]" value="{{AtQ.Weight}}" paceholder="{{AtQ.Weight}}" />-->
-	        </div>
-        </div>
-    </div>
-    <div ng-if="tQ.Type == 'single'">
-        <hr>
-        <h3>{{tQ.Text}}</h3>
-        <div class="btn-group" data-toggle="buttons">
-	        <form>
-		        <div ng-repeat="AtQ in tQ.Answers">
-		        	<!--Svör-->
-		        	<label class="btn btn-primary">
-						<input type="radio" name="singleAnswer">{{AtQ.Text}}
-					</label>	
-					<!--<label for="TextEN[{{AtQ.ID}}]">answer</label>
-					{{AtQ.TextEN}}
-
-					<label for="Url[{{AtQ.ID}}]">Image URL</label>
-					<input type="text" name="Url[{{AtQ.ID}}]" ng-model="Url[AtQ.ID]" value="{{AtQ.ImageURL}}" paceholder="{{AtQ.ImageURL}}" />
-					<label for="Weight[{{AtQ.ID}}]">Weight value 1 - 5</label>
-					<input type="text" name="Weight[{{AtQ.ID}}]" ng-model="Weight[AtQ.ID]" value="{{AtQ.Weight}}" paceholder="{{AtQ.Weight}}" />-->
-		        </div>
-	        </form>
-        </div>
-    </div>
-</div>
-
-<!-- ################################### COURSEQUESTIONS ########################################### -->
-<h2>course</h2>
-
-	<div ng-repeat="cQ in courseQuestions track by $index">
-
-	<hr>
-	    <div ng-if="cQ.Type == 'text'">
-        	<div ng-if="cQ.Text">
-				<!--Spurning-->
-				<h3>{{cQ.Text}}</h3>
-				<form role="form">
-					<div class="form-group">
-						<label for="name">Text Area</label>
-						<textarea class="form-control" rows="3"></textarea>
-					</div>
-				</form>
+		<div question>
+			<div ng-if="quest.Type == 'multiple'">
+				<div c-multi-question></div>
 			</div>
-			<!--<div ng-if="cQ.TextEN">  ENSKA?
-				Spurning á ensku
-				<p>{{cQ.TextEN}}</p>
-				<form role="form">
-					<div class="form-group">
-						<label for="name">Text Area</label>
-						<textarea class="form-control" rows="3"></textarea>
-					</div>
-				</form>
-			</div>-->
-	    </div>
-	      	<div ng-if="cQ.Type == 'multiple'">
-	        <hr>
-
-	        <h3>{{cQ.Text}}</h3>
-	        <p>Multiple choice</p>
-	        <div class="btn-group" data-toggle="buttons">
-		        <div ng-repeat="AcQ in cQ.Answers" >
-		        	<!--Svör-->
-		        	<label class="btn btn-primary">
-						<input type="checkbox">{{AcQ.Text}}
-					</label>
-					<!--<label for="TextEN[{{AtQ.ID}}]">answer</label>
-					{{AtQ.TextEN}}
-
-					<label for="Url[{{AtQ.ID}}]">Image URL</label>
-					<input type="text" name="Url[{{AtQ.ID}}]" ng-model="Url[AtQ.ID]" value="{{AtQ.ImageURL}}" paceholder="{{AtQ.ImageURL}}" />
-					<label for="Weight[{{AtQ.ID}}]">Weight value 1 - 5</label>
-					<input type="text" name="Weight[{{AtQ.ID}}]" ng-model="Weight[AtQ.ID]" value="{{AtQ.Weight}}" paceholder="{{AtQ.Weight}}" />-->
-		        </div>
-	        </div>
-	    </div>
-	    <div ng-if="cQ.Type == 'single'">
-	        <hr>
-	        <h3>{{cQ.Text}}</h3>
-	        <div class="btn-group" data-toggle="buttons">
-		        <div ng-repeat="AcQ in cQ.Answers">
-					<!--Svör-->
-					<label class="btn btn-primary">
-						<input type="radio" name="singleAnswer">{{AcQ.Text}}
-					</label>
-					<!--<label for="TextEN[{{AtQ.ID}}]">answer</label>
-					{{AtQ.TextEN}}
-
-					<label for="Url[{{AtQ.ID}}]">Image URL</label>
-					<input type="text" name="Url[{{AtQ.ID}}]" ng-model="Url[AtQ.ID]" value="{{AtQ.ImageURL}}" paceholder="{{AtQ.ImageURL}}" />
-					<label for="Weight[{{AtQ.ID}}]">Weight value 1 - 5</label>
-					<input type="text" name="Weight[{{AtQ.ID}}]" ng-model="Weight[AtQ.ID]" value="{{AtQ.Weight}}" paceholder="{{AtQ.Weight}}" />-->
-				</div>
-	        </div>
-	    </div>
+			<div ng-if="quest.Type == 'single'">
+				<div c-single-question></div>
+			</div>
+			<div ng-if="quest.Type == 'text'">
+				<div c-text-question></div>
+			</div>
+		</div>
 	</div>
-<input type="submit" value="Skila mati" ng-click="submitEval()">
-
 </div>
