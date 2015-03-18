@@ -1,10 +1,12 @@
 body {
     padding-top: @padding-top;
+    padding-bottom: @padding-bottom;
     /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 
 @padding-top:100px;
+@padding-bottom: 200px;
 @margin-top: 3px;
 @margin-bottom: 6px;
 @color-base: #a6a6a6;
@@ -17,14 +19,16 @@ input[type="checkbox"]{
     visibility:hidden;
 }
 
-
 .image {
     padding-left: 60px;
     padding-bottom: 30px;
 }
 
-.btn {
-	margin-top: @margin-top;
+.btn-group-lg > .btn, .btn-lg {
+    padding: 15px 100px;
+    font-size: 18px;
+    line-height: 1.33333;
+    border-radius: 6px;
 }
 
 .evalList {
@@ -136,3 +140,13 @@ li {
     overflow: auto;
     height: 500px;
 }
+
+.create-template {
+    border-color: white;
+}
+
+.save-template {
+    padding-left: 126px;
+}
+
+

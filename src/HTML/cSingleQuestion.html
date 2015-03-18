@@ -1,10 +1,10 @@
 <hr>
-<h3>{{quest.Text}}</h3>
+<h3>{{cQ.Text}}</h3>
 <div class="btn-group" data-toggle="buttons">
     <form>
-        <div ng-repeat="AtQ in quest.Answers">
+        <div ng-repeat="AcQ in cQ.Answers">
         	<label class="btn btn-primary">
-				<input type="radio" name="singleAnswer">{{AtQ.Text}}</input>
+				<input type="radio" name="singleAnswer" value="AcQ.Weight">{{AcQ.Text}}</input>
 			</label>	
 			<!--<label for="TextEN[{{AtQ.ID}}]">answer</label>
 			{{AtQ.TextEN}}

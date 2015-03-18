@@ -1,8 +1,8 @@
 <hr>
-<h3>{{quest.Text}}</h3>
+<h3>{{tQ.Text}}</h3>
 <div class="btn-group" data-toggle="buttons">
     <form>
-        <div ng-repeat="AtQ in quest.Answers">
+        <div ng-repeat="AtQ in tQ.Answers">
         	<label class="btn btn-primary">
 				<input type="radio" ng-model="teacherQuestions[$index].ID" name="singleAnswer" value="AtQ.Weight" >{{AtQ.Text}}</input>
 			</label>
