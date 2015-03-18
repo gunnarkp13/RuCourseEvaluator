@@ -1,7 +1,12 @@
 body {
-    padding-top: 100px;
+    padding-top: @padding-top;
     /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
+
+@padding-top:100px;
+@margin-top: 3px;
+@margin-bottom: 6px;
+@color-base: #a6a6a6;
 
 .image {
     padding-left: 60px;
@@ -9,30 +14,29 @@ body {
 }
 
 .btn {
-	margin-top: 5px;
+	margin-top: @margin-top;
 }
 
 .evalList {
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
+	margin-top: @margin-top;
+	margin-bottom: @margin-bottom;
 
-.evalList:hover {
-	background-color: #EEEEEE;
+    &:hover {
+	background-color: @color-base;
 	cursor: pointer;
+    }
 }
 
 .choices {
-	margin-top: 3px;
-	margin-bottom: 3px;
+	margin-top: @margin-top;
+	margin-bottom: (@margin-bottom - 3px);
 	margin-left: 6px;
-}
 
-.choices:hover {
-	background-color: #EEEEEE;
+    &:hover {
+	background-color: @color-base;
 	cursor: pointer;
+    }
 }
-
 .logout:hover {
 	cursor: pointer;
 }
@@ -115,11 +119,10 @@ li {
 }
 
 .panel-primary > .panel-heading {
-	text-align: center;
+    text-align: center;
 }
 
 .evaluations {
-	overflow: auto;
-	height: 500px;
+    overflow: auto;
+    height: 500px;
 }
-
