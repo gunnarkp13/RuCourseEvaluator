@@ -1,121 +1,147 @@
 <div class="container">
-	<h1>
-		Create template
-	</h1>
-	<div class="row">
-		<div class="col-md-4">
-			<label for="titleIs">Titill</label>
-			<textarea rows="1" cols="50" id="titleIs" ng-model="TemplateTitle" placeholder="Titill á íslensku" ></textarea>
-		</div>
-		<div class="col-md-4">
-			<label for="titleEn">Title</label>
-			<textarea rows="1" cols="50" id="titleEn" ng-model="TemplateTitleEN" placeholder="Title in English" ></textarea>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-4">
-			<label for="descriptionIs">Lýsing</label>
-			<textarea rows="4" cols="50" id="descriptionIs" ng-model="introText" placeholder="Lýsing" >{{introText}}</textarea>
-		</div>
-		<div class="col-md-4">
-			<label for="descriptionEn">Description</label>
-			<textarea rows="4" cols="50" id="descriptionEn" ng-model="introTextEN" placeholder="Description" >{{introTextEN}}</textarea>
-		</div>
-        <div class="col-md-4">
-      <label for="descriptionEn">imageURL</label>
-      <textarea rows="4" cols="50" id="descriptionEn" ng-model="imageURL" placeholder="Description" >{{imageURL}}</textarea>
-    </div>
-	</div>
-
-	<div ng-repeat="tQ in teacherQuestions track by $index">
-      <hr />
-      <div>
-        <h3>Quetion nr. {{tQ.ID}}</h3>
-        <div>Question type. {{tQ.Type}}</div>
-        <label for="Text[{{tQ.ID}}]">Text</label>
-        <textarea rows="1" cols="50" name="Text[{{tQ.ID}}]" ng-model="teacherQuestions[$index].Text" >{{tQ.Text}}</textarea>
-        <label for="TextEN[{{tQ.ID}}]">TextEN</label>
-        <textarea rows="1" cols="50" name="TextEN[{{tQ.ID}}]" ng-model="teacherQuestions[$index].TextEN" >{{tQ.TextEN}}</textarea>
-        <label for="Url[{{tQ.ID}}]">Image URL</label>
-        <textarea rows="1" cols="50" name="Url[{{tQ.ID}}]" ng-model="teacherQuestions[$index].ImageURL" >{{tQ.ImageURL}}</textarea>
-      </div>
-      <div ngIf="tQ.Type == 'multi' || tQ.Type == 'single'">
-        <hr />
-        <div ng-repeat="AtQ in tQ.Answers track by $index">
-          <h5>Answer nr. {{AtQ.ID}}</h5>
-          <label for="Text[{{AtQ.ID}}]">Text</label> 
-          <textarea rows="1" cols="50" name="Text[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].Text" >{{AtQ.Text}}</textarea>
-          <label for="TextEN[{{AtQ.ID}}]">TextEN</label>
-          <textarea rows="1" cols="50" name="TextEN[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].TextEN" >{{AtQ.TextEN}}</textarea>
-          <label for="Url[{{AtQ.ID}}]">Image URL</label>
-          <textarea rows="1" cols="50" name="Url[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].ImageUrl" >{{AtQ.ImageURL}}</textarea>
-          <label for="Weight[{{AtQ.ID}}]">Weight value 1 - 5</label>
-          <textarea rows="1" cols="50" name="Weight[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].Weight" >{{AtQ.Weight}}</textarea>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Búa til template
         </div>
-        <input type="button" class="button" ng-click="addAnswer('Teacher', tQ.ID)" value="Add Answer Option" />
-      </div>
-  </div>
-
-  <div ng-repeat="cQ in courseQuestions track by $index">
-      <hr />
-      <div>
-        <h3>Quetion nr. {{cQ.ID}}</h3>
-        <div>Question type. {{cQ.Type}}</div>
-        <label for="Text[{{cQ.ID}}]">Text</label>
-        <textarea rows="1" cols="50" name="Text[{{cQ.ID}}]" ng-model="courseQuestions[$index].Text" ></textarea>
-        <label for="TextEN[{{cQ.ID}}]">TextEN</label>
-        <textarea rows="1" cols="50" name="TextEN[{{cQ.ID}}]" ng-model="courseQuestions[$index].TextEN" >{{cQ.TextEN}}</textarea>
-        <label for="Url[{{cQ.ID}}]">Image URL</label>
-        <textarea rows="1" cols="50" name="Url[{{cQ.ID}}]" ng-model="courseQuestions[$index].Answers[$index].ImageURL" >{{cQ.ImageURL}}</textarea>
-      </div>
-      <div ngIf="tQ.Type == 'multi' || tQ.Type == 'single'">
-        <hr>
-        <div ng-repeat="AcQ in cQ.Answers track by $index">
-          <h5>Answer nr. {{AcQ.ID}}</h5>
-          <label for="Text[{{AcQ.ID}}]">Text</label>
-          <textarea rows="1" cols="50" name="Text[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answers[$index].Text" ></textarea>
-          <label for="TextEN[{{AcQ.ID}}]">TextEN</label>
-          <textarea rows="1" cols="50" name="TextEN[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answers[$index].TextEN" ></textarea>
-          <label for="Url[{{AcQ.ID}}]">Image URL</label>
-          <textarea rows="1" cols="50" name="Url[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answer[$index].ImageURL" ></textarea>
-          <label for="Weight[{{AcQ.ID}}]">Weight value 1 - 5</label>
-          <textarea rows="1" cols="50" name="Weight[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answers[$index].Weight" ></textarea>
-        </div>
-        <input type="button" class="button" ng-click="addAnswer('Course', cQ.ID)" value="Add Answer Option" /> 
-      </div>   
-  </div>
-
-	<div class="row">
-    <hr />
-        <div class="dropdown">
-            <div id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary">
-                New question <span class="caret"></span>
+        <div class="create-template" scroll-glue>
+            <div class="panel-body">
+	              <div class="row">
+		                <div class="col-md-4">
+		                  	<label for="titleIs">Titill</label>
+                  			<textarea rows="1" cols="50" id="titleIs" ng-model="TemplateTitle" placeholder="Titill á íslensku" >   
+                        </textarea>
+                  	</div>
+                  	<div class="col-md-4">
+                  		<label for="titleEn">Title</label>
+                  			<textarea rows="1" cols="50" id="titleEn" ng-model="TemplateTitleEN" placeholder="Title in English" >   
+                        </textarea>
+                  	</div>
+                </div>
+                <div class="row">
+                  	<div class="col-md-4">
+                  			<label for="descriptionIs">Lýsing</label>
+                  			<textarea rows="4" cols="50" id="descriptionIs" ng-model="introText" placeholder="Lýsing" >{{introText}}
+                        </textarea>
+		                </div>
+		                <div class="col-md-4">
+			                  <label for="descriptionEn">Description</label>
+			                   <textarea rows="4" cols="50" id="descriptionEn" ng-model="introTextEN" placeholder="Description" >{{introTextEN}}
+                         </textarea>
+		                </div>
+                    <div class="col-md-4">
+                        <label for="descriptionEn">imageURL</label>
+                        <textarea rows="4" cols="50" id="descriptionEn" ng-model="imageURL" placeholder="Description" >{{imageURL}}
+                        </textarea>
+                    </div>
+	              </div>
             </div>
-        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-              <li class="dropdown-submenu">
-                <div class="choices">Course <span class="caret"></span></div>
-                <ul class="dropdown-menu">
-                  <li><div tabindex="-1" class="choices" ng-click="addQuestion('course', 'single')">Single choice </div></li>
-                  <li class="divider"></li>
-                  <li><div tabindex="-1" class="choices" ng-click="addQuestion('course', 'multi')">Multiple choice</div></li>
-                  <li class="divider"></li>
-                  <li><div tabindex="-1" class="choices" ng-click="addQuestion('course', 'text')">Text question</div></li>
-                </ul>
-              </li>
-              <li class="divider"></li>
-              <li class="dropdown-submenu">
-                <div class="choices">Teacher <span class="caret"></span></div>
-                <ul class="dropdown-menu">
-                  <li><div tabindex="-1" class="choices" ng-click="addQuestion('teacher', 'single')">Single choice</div></li>
-                  <li class="divider"></li>
-                  <li><div tabindex="-1" class="choices" ng-click="addQuestion('teacher', 'multi')">Multiple choice</div></li>
-                  <li class="divider"></li>
-                  <li><div tabindex="-1" class="choices" ng-click="addQuestion('teacher', 'text')">Text question</div></li>
-                </ul>
-              </li>
-            </ul>
         </div>
-  </div>
-  <hr />
-  <input type="button" class="button" ng-click="submit()" value="Save Template" />
+    </div>
+    
+	  <div ng-repeat="tQ in teacherQuestions track by $index">
+        <div class="panel panel-primary">
+        <div class="panel-heading">
+            Question nr. {{tQ.ID}}
+        </div>
+        <div class="create-question">
+            <div class="panel-body">
+            <div class="question">
+                <div>Question type. {{tQ.Type}}</div>
+                <label for="Text[{{tQ.ID}}]">Text</label>
+                <textarea rows="1" cols="50" name="Text[{{tQ.ID}}]" ng-model="teacherQuestions[$index].Text" >{{tQ.Text}}</textarea>
+                <label for="TextEN[{{tQ.ID}}]">TextEN</label>
+                <textarea rows="1" cols="50" name="TextEN[{{tQ.ID}}]" ng-model="teacherQuestions[$index].TextEN" >{{tQ.TextEN}}</textarea>
+                <label for="Url[{{tQ.ID}}]">Image URL</label>
+                <textarea rows="1" cols="50" name="Url[{{tQ.ID}}]" ng-model="teacherQuestions[$index].ImageURL" >{{tQ.ImageURL}}</textarea>
+              </div>
+              <div ngIf="tQ.Type == 'multi' || tQ.Type == 'single'">
+                <hr />
+                <div ng-repeat="AtQ in tQ.Answers track by $index">
+                  <h5>Answer nr. {{AtQ.ID}}</h5>
+                  <label for="Text[{{AtQ.ID}}]">Text</label> 
+                  <textarea rows="1" cols="50" name="Text[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].Text" >{{AtQ.Text}}</textarea>
+                  <label for="TextEN[{{AtQ.ID}}]">TextEN</label>
+                  <textarea rows="1" cols="50" name="TextEN[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].TextEN" >{{AtQ.TextEN}}</textarea>
+                  <label for="Url[{{AtQ.ID}}]">Image URL</label>
+                  <textarea rows="1" cols="50" name="Url[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].ImageUrl" >{{AtQ.ImageURL}}</textarea>
+                  <label for="Weight[{{AtQ.ID}}]">Weight value 1 - 5</label>
+                  <textarea rows="1" cols="50" name="Weight[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].Weight" >{{AtQ.Weight}}</textarea>
+              </div>
+              <input type="button" class="button" ng-click="addAnswer('Teacher', tQ.ID)" value="Add Answer Option" />
+            </div>
+          </div>
+          </div>
+          </div>
+    </div>
+    <div ng-repeat="cQ in courseQuestions track by $index">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+            Question nr. {{cQ.ID}}
+        </div>
+        <div class="create-question">
+            <div class="panel-body">
+        <div class="question">
+            <div>Question type. {{cQ.Type}}</div>
+            <label for="Text[{{cQ.ID}}]">Text</label>
+            <textarea rows="1" cols="50" name="Text[{{cQ.ID}}]" ng-model="courseQuestions[$index].Text" ></textarea>
+            <label for="TextEN[{{cQ.ID}}]">TextEN</label>
+            <textarea rows="1" cols="50" name="TextEN[{{cQ.ID}}]" ng-model="courseQuestions[$index].TextEN" >{{cQ.TextEN}}</textarea>
+            <label for="Url[{{cQ.ID}}]">Image URL</label>
+            <textarea rows="1" cols="50" name="Url[{{cQ.ID}}]" ng-model="courseQuestions[$index].Answers[$index].ImageURL" >{{cQ.ImageURL}}</textarea>
+        </div>
+        <div ngIf="tQ.Type == 'multi' || tQ.Type == 'single'">
+            <div ng-repeat="AcQ in cQ.Answers track by $index">
+                <h5>Answer nr. {{AcQ.ID}}</h5>
+                <label for="Text[{{AcQ.ID}}]">Text</label>
+                <textarea rows="1" cols="50" name="Text[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answers[$index].Text" ></textarea>
+                <label for="TextEN[{{AcQ.ID}}]">TextEN</label>
+                <textarea rows="1" cols="50" name="TextEN[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answers[$index].TextEN" ></textarea>
+                <label for="Url[{{AcQ.ID}}]">Image URL</label>
+                <textarea rows="1" cols="50" name="Url[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answer[$index].ImageURL" ></textarea>
+                <label for="Weight[{{AcQ.ID}}]">Weight value 1 - 5</label>
+                <textarea rows="1" cols="50" name="Weight[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answers[$index].Weight" ></textarea>
+            </div>
+            <input type="button" class="button" ng-click="addAnswer('Course', cQ.ID)" value="Add Answer Option" />
+        </div>
+        </div>
+        </div>
+        </div>   
+    </div>
+	  <div class="row">
+        <div class="col-md-4">
+            <div class="dropdown">
+                <div id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary">
+                    New question <span class="caret"></span>
+                </div>
+                <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                    <li class="dropdown-submenu">
+                        <div class="choices">Course <span class="caret"></span></div>
+                        <ul class="dropdown-menu">
+                            <li><div tabindex="-1" class="choices" ng-click="addQuestion('course', 'single')">Single choice </div></li>
+                            <li class="divider"></li>
+                            <li><div tabindex="-1" class="choices" ng-click="addQuestion('course', 'multi')">Multiple choice</div></li>
+                            <li class="divider"></li>
+                            <li><div tabindex="-1" class="choices" ng-click="addQuestion('course', 'text')">Text question</div></li>
+                        </ul>
+                    </li>
+                    <li class="divider"></li>
+                      <li class="dropdown-submenu">
+                        <div class="choices">Teacher <span class="caret"></span></div>
+                        <ul class="dropdown-menu">
+                            <li><div tabindex="-1" class="choices" ng-click="addQuestion('teacher', 'single')">Single choice</div></li>
+                            <li class="divider"></li>
+                            <li><div tabindex="-1" class="choices" ng-click="addQuestion('teacher', 'multi')">Multiple choice</div></li>
+                            <li class="divider"></li>
+                            <li><div tabindex="-1" class="choices" ng-click="addQuestion('teacher', 'text')">Text question</div></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4 offsett-4">
+            <div class="save-template">
+                <input type="button" class="button" ng-click="submit()" value="Save Template" />
+            </div>
+        </div>
+    </div>
 </div>
