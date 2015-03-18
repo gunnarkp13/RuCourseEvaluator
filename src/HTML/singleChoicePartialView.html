@@ -1,21 +1,28 @@
-<div ng-controller="singleController"></div>
 <div class="container">
-<h2>Radio (single choice)</h2>
-	<div class="btn-group" data-toggle="buttons">
-		<label class="btn btn-primary">
-			<input type="radio" name="options" id="option1"> Mjög ánægð/ur
-		</label>
-		<label class="btn btn-primary">
-			<input type="radio" name="options" id="option2"> ánægð/ur
-		</label>
-		<label class="btn btn-primary">
-			<input type="radio" name="options" id="option3"> hlutlaus
-		</label>
-		<label class="btn btn-primary">
-			<input type="radio" name="options" id="option2"> óánægð/ur
-		</label>
-		<label class="btn btn-primary">
-			<input type="radio" name="options" id="option3"> mjög óánægð/ur
-		</label>
+	<div ng-show="question.Type === 'single'">
+		<div>{{question.Type}}</div>
+		<input type="text" placeholder="spurning"/>
+		<input type="text" placeholder="svar1"/>
+		<input type="text" placeholder="svar2"/>
+		<input type="text" placeholder="svar3"/>
+		<input type="text" placeholder="svar4"/>
+		<input type="text" placeholder="svar5"/>
+	</div>
+
+	<div ng-show="question.Type === 'multi'">
+		<div>{{question.Type}}</div>
+		<input type="text" placeholder="spurning"/>
+		<input type="text" placeholder="svar1"/>
+		<input type="text" placeholder="svar2"/>
+		<input type="text" placeholder="svar3"/>
+		<input type="text" placeholder="svar4"/>
+		<input type="text" placeholder="svar5"/>
+	</div>
+
+	<div ng-show="question.Type === 'text'">
+		<div>{{question.Type}}</div>
+		<input type="text" placeholder="spurning"/>
+		<input type="text" placeholder="svar"/>
 	</div>
 </div>
+

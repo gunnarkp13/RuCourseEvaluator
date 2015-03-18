@@ -22,8 +22,8 @@
 			<input type="text" id="descriptionEn" placeholder="Description" />
 		</div>
 	</div>
-	<div ng-repeat="question in questions">
-
+	<div ng-repeat="question in courseQuestions">
+    <admin-template-controller ng-model="question"></admin-template-controller>
 	</div>
 	<div class="row">
         <div class="dropdown">
