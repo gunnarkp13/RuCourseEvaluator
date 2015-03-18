@@ -15,6 +15,7 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 		$scope.evalID = '';
 		$scope.teachers = [];
 		$scope.questionAns = [];
+		$scope.evalQuestions = [];
 
 		if($routeParams.evalID !== undefined) {
 
@@ -53,15 +54,66 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 				});
 			}
 
+		for(var tT in $scope.teachers) {
+			for (var tQ in $scope.teacherQuestions) {
+				var tqObject = {
+					"ID": tQ.ID,
+					"sType": 'teacher',
+					"qType": tQ.Type,
+					"tSSN": tT.SSN,
+					"tFullName": tT.FullName,
+					"qText": tQ.Text,
+					"qTextEN": tQ.Text,
+					"qAnswers": tQ.Answers,
+					"Weight": tQ.Weight,
+					"Answer": ''
+				};
+
+				$scope.evalQuestions.push(tqObject); 
+			}
+		}	
+
+		for(var cQ in $scope.courseQuestions) {
+			var cqObject = {
+					"ID": cQ.ID,
+					"sType": 'course',
+					"qType": cQ.Type,
+					"tSSN": '',
+					"tFullName": '',
+					"qText": cQ.Text,
+					"qTextEN": cQ.Text,
+					"qAnswers": cQ.Answers,
+					"Weight": cQ.Weight,
+					"Answer": ''
+				};
+				$scope.evalQuestions.push(cqObject);
+		}
+
 		$scope.submitQuestion = function (Weight, SSN, qID) {
 
 		};
 		
 		$scope.submitEval = function () {
-			console.log($scope.tQID);
-			serverResource.getCourseEval($routeParams.evalCourse, 
-				$routeParams.evalSemester, $routeParams.evalID,  sessionCookie.getToken());
-			$location.path('/student');
+			var submitObject = [];
+			for(var question in $scope.evalQuestions) {
+				var ans = {
+					"QuestionID": question.ID,
+					"TeacherSSN": question.tSSN,
+					"Value": question.Answer
+				};
+				submitObject.push(ans);
+			}
+			serverResource.postCourseEval($scope.course, $scope.semester, $scope.evalID, submitObject, sessionCookie.getToken())
+			.success(function (response) {
+				console.log("success");
+				$location.path('/student');
+			})
+			.error(function (response) {
+				console.log("skrambinn");
+			});
+
+
+			
 		};
 	}
 ])
