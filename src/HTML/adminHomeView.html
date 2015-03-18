@@ -1,28 +1,32 @@
+
 <div class="container">
-	<div class="btn-group-vertical">
-        <div class="btn-group">
-            <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Möt <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-                <li>
-                	<div class="btn btn-lg btn-primary" ng-click="getEvaluations()">Skoða Möt</div>
-                </li>
-                <li>
-                	<div class="btn btn-lg btn-primary " ng-click="newEvaluation()">Gera nýtt mat</div>
-                </li>
-            </ul>
-        </div>
-        <div class="btn-group">
-            <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Template <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-                <li>
-                	<div class="btn" ng-click="getTemplateList()">Skoða Template</div>
-                </li>
-                <li>
-                	<div class="btn" ng-click="createTemplate()">Gera nýtt template</div>
-                </li>
-            </ul>
-        </div>
-    </div>
+	<div class="row">
+	    <div class="col-md-4"></div>
+		<div class="btn-group-vertical" role="group">
+	        <div class="btn-group-lg">
+	            <button type="button" data-toggle="dropdown" class="btn btn-primary btn-lg btn-block">Möt <span class="caret"></span></button>
+	            <ul class="dropdown-menu" role="menu">
+	                <li>
+	                	<div class="btn btn-primary btn-lg btn-block" ng-click="getEvaluations()">Skoða möt</div>
+	                </li>
+	                <li>
+	                	<div class="btn btn-primary btn-lg btn-block " ng-click="newEvaluation()">Gera nýtt mat</div>
+	                </li>
+	            </ul>
+	        </div>
+	        <div class="btn-group-lg">
+	            <button type="button" data-toggle="dropdown" class="btn btn-primary btn-lg btn-block">Template <span class="caret"></span></button>
+	            <ul class="dropdown-menu" role="menu">
+	                <li>
+	                	<div class="btn btn-primary btn-lg btn-block" ng-click="getTemplateList()">Skoða Template</div>
+	                </li>
+	                <li>
+	                	<div class="btn btn-primary btn-lg btn-block" ng-click="createTemplate()">Gera nýtt template</div>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	</div>
 </div>
 
 
