@@ -10,8 +10,8 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 	function ($scope, $routeParams, $location, evaluationServer, serverResource, sessionCookie) {
 		$scope.teacherQuestions = [];
 		$scope.courseQuestions = [];
-		$scope.courses = [];
-		$scope.semester = [];
+		$scope.course = '';
+		$scope.semester = '';
 		$scope.evalID = '';
 		$scope.teachers = [];
 		$scope.questionAns = [];
@@ -21,6 +21,9 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 				console.log($routeParams.evalID);
 				console.log($routeParams.evalCourse);
 				console.log($routeParams.evalSemester);
+				$scope.course = $routeParams.evalCourse;
+				$scope.semester = $routeParams.evalSemester;
+
 				serverResource.getCourseEval($routeParams.evalCourse, $routeParams.evalSemester, $routeParams.evalID, sessionCookie.getToken())
 				.success(function (response) {
 					console.log("success");
@@ -51,7 +54,7 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 			}
 
 		$scope.submitQuestion = function (Weight, SSN, qID) {
-			
+
 		};
 		
 		$scope.submitEval = function () {
