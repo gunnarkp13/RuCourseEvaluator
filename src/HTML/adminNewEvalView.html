@@ -1,13 +1,52 @@
 <div class="container">
-	<div class="row">
-		<div class="col-md-3">
-				<label for="startTime">opna</label>
-				<input type="datetime-local" ng-model="times.startTime" id="startTime" />
+	<div class="panel panel-primary">
+        <div class="panel-heading">
+           	Búa til nýtt mat
+       	</div>
+       	<div class="new-eval">
+        	<div class="panel-body">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="btn btn-primary" ng-click="submitEval()"> 
+						leggja fyrir 
+					</div>
+					</div>
+					<div class="col-md-3">
+							<label for="startTime">opna</label>
+							<input type="datetime-local" ng-model="times.startTime" id="startTime" />
+					</div>
+					<div class="col-md-3">
+						<label for="endTime">loka</label>
+						<input type="datetime-local" ng-model="times.endTime" id="endTime" />
+					</div>
+					<div class="col-md-3">
+				        <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">{{message}}<span class="caret"></span></button>
+				        <ul class="dropdown-menu">
+				        	<div class="templateList">
+								<li ng-repeat="template in templates">
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="evalList col-md-11" ng-click="setTemplate(template.ID, template.Title)">
+											{{template.ID}}: {{template.Title}}
+										</div>
+									</div>
+								</li>
+							</div>
+				        </ul>
+				    </div>
+				</div>
+				<div>		
+				</div>
+				<div>
+					<div class="btn btn-primary" ng-click="back()">
+						bakka
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="col-md-3">
-			<label for="endTime">loka</label>
-			<input type="datetime-local" ng-model="times.endTime" id="endTime" />
-		</div>
+	</div>
+</div>
+
 <!-- fengum þetta ekki til að virka
 	<div class='col-md-7'>
 		<div class="form-group">
@@ -29,34 +68,7 @@
 			</div>
 		</div>
 	</div> -->
-		<div class="btn-group col-md-6">
-	        <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">{{message}}<span class="caret"></span></button>
-	        <ul class="dropdown-menu">
-	        	<div class="templateList">
-					<li ng-repeat="template in templates">
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="evalList col-md-11" ng-click="setTemplate(template.ID, template.Title)">
-								{{template.ID}}: {{template.Title}}
-							</div>
-						</div>
-					</li>
-				</div>
-	        </ul>
-	    </div>
-	</div>
-	<div>
-		<div class="btn" ng-click="submitEval()"> 
-			leggja fyrir 
-		</div>
-	</div>
-	<div>
-		<div class="btn" ng-click="back()">
-			bakka
-		</div>
-	</div>
-</div>
-
+		
 
 
 
