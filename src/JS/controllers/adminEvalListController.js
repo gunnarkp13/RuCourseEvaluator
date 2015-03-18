@@ -1,5 +1,5 @@
 "use strict";
-
+//controller til að sækja listan af mötum sem eru buin.
 angular.module('RuCourseEvaluator').controller("adminEvalListController", [
 	'$scope',
 	'$location',
@@ -14,14 +14,15 @@ angular.module('RuCourseEvaluator').controller("adminEvalListController", [
 			serverResource.getEvals(sessionCookie.getToken())
 			.success(function (response) {
 				$scope.evalList = response;
-				console.log("success turbo");
+				console.log("success");
 				console.log(response);	
 			})
 			.error(function (response) {
 				console.log("error!!");
 			});
 		} else {
-			$location.path('/admin');
+			//ef notandi er ekki admin þá er routað a login
+			$location.path('/login');
 		}
 
 	}
