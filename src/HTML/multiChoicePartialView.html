@@ -1,83 +1,19 @@
-<div class="container">
-<h2>Checkbox (multiple choice)</h2>
-	<div class="btn-group" data-toggle="buttons">
+
+<hr>
+<!--Spurning-->
+<h3>{{quest.Text}}</h3>
+<p>Multiple choice</p>
+<div class="btn-group" data-toggle="buttons">
+    <div ng-repeat="AtQ in quest.Answers">
+		<!--svör-->
 		<label class="btn btn-primary">
-			<input type="checkbox"> Option 1
+			<input type="checkbox">{{AtQ.Text}}
 		</label>
-		<label class="btn btn-primary">
-			<input type="checkbox"> Option 2
-		</label>
-		<label class="btn btn-primary">
-			<input type="checkbox"> Option 3
-		</label>
-		<label class="btn btn-primary">
-			<input type="checkbox"> Option 4
-		</label>
-		<label class="btn btn-primary">
-			<input type="checkbox"> Option 5
-		</label>
-	</div>
+		<!--<label for="TextEN[{{AtQ.ID}}]">answer</label>
+		{{AtQ.TextEN}}
+		<label for="Url[{{AtQ.ID}}]">Image URL</label>
+		<input type="text" name="Url[{{AtQ.ID}}]" ng-model="Url[AtQ.ID]" value="{{AtQ.ImageURL}}" paceholder="{{AtQ.ImageURL}}" />
+		<label for="Weight[{{AtQ.ID}}]">Weight value 1 - 5</label>
+		<input type="text" name="Weight[{{AtQ.ID}}]" ng-model="Weight[AtQ.ID]" value="{{AtQ.Weight}}" paceholder="{{AtQ.Weight}}" />-->
+    </div>
 </div>
-
-
-
-
-
-
-
-+<div class="container">
-+<h2>Radio (single choice)</h2>
-+	<div class="btn-group" data-toggle="buttons">
-+		<label class="btn btn-primary">
-+			<input type="radio" name="options" id="option1"> Mjög ánægð/ur
-+		</label>
-+		<label class="btn btn-primary">
-+			<input type="radio" name="options" id="option2"> ánægð/ur
-+		</label>
-+		<label class="btn btn-primary">
-+			<input type="radio" name="options" id="option3"> hlutlaus
-+		</label>
-+		<label class="btn btn-primary">
-+			<input type="radio" name="options" id="option2"> óánægð/ur
-+		</label>
-+		<label class="btn btn-primary">
-+			<input type="radio" name="options" id="option3"> mjög óánægð/ur
-+		</label>
-+	</div>
-+</div>
-
-
-
-
-
-<div class="container"> 
-	<form role="form">
-		<div class="form-group">
-			<label for="name">Text Area</label>
-			<textarea class="form-control" rows="3"></textarea>
-		</div>
-	</form>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
