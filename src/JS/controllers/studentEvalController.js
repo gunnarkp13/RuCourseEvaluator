@@ -54,7 +54,7 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 			}
 
 		$scope.submitQuestion = function (Weight, SSN, qID) {
-				if(SSN)
+
 		};
 		
 		$scope.submitEval = function () {

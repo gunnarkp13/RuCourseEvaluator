@@ -3,7 +3,7 @@
         <div class="panel-heading">
             Búa til template
         </div>
-        <div class="create-template" scroll-glue>
+        <div class="create-template">
             <div class="panel-body">
 	              <div class="row">
 		                <div class="col-md-4">
@@ -37,74 +37,75 @@
             </div>
         </div>
     </div>
-    
 	  <div ng-repeat="tQ in teacherQuestions track by $index">
         <div class="panel panel-primary">
-        <div class="panel-heading">
-            Question nr. {{tQ.ID}}
-        </div>
-        <div class="create-question">
-            <div class="panel-body">
-            <div class="question">
-                <div>Question type. {{tQ.Type}}</div>
-                <label for="Text[{{tQ.ID}}]">Text</label>
-                <textarea rows="1" cols="50" name="Text[{{tQ.ID}}]" ng-model="teacherQuestions[$index].Text" >{{tQ.Text}}</textarea>
-                <label for="TextEN[{{tQ.ID}}]">TextEN</label>
-                <textarea rows="1" cols="50" name="TextEN[{{tQ.ID}}]" ng-model="teacherQuestions[$index].TextEN" >{{tQ.TextEN}}</textarea>
-                <label for="Url[{{tQ.ID}}]">Image URL</label>
-                <textarea rows="1" cols="50" name="Url[{{tQ.ID}}]" ng-model="teacherQuestions[$index].ImageURL" >{{tQ.ImageURL}}</textarea>
-              </div>
-              <div ngIf="tQ.Type == 'multi' || tQ.Type == 'single'">
-                <hr />
-                <div ng-repeat="AtQ in tQ.Answers track by $index">
-                  <h5>Answer nr. {{AtQ.ID}}</h5>
-                  <label for="Text[{{AtQ.ID}}]">Text</label> 
-                  <textarea rows="1" cols="50" name="Text[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].Text" >{{AtQ.Text}}</textarea>
-                  <label for="TextEN[{{AtQ.ID}}]">TextEN</label>
-                  <textarea rows="1" cols="50" name="TextEN[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].TextEN" >{{AtQ.TextEN}}</textarea>
-                  <label for="Url[{{AtQ.ID}}]">Image URL</label>
-                  <textarea rows="1" cols="50" name="Url[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].ImageUrl" >{{AtQ.ImageURL}}</textarea>
-                  <label for="Weight[{{AtQ.ID}}]">Weight value 1 - 5</label>
-                  <textarea rows="1" cols="50" name="Weight[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].Weight" >{{AtQ.Weight}}</textarea>
-              </div>
-              <input type="button" class="button" ng-click="addAnswer('Teacher', tQ.ID)" value="Add Answer Option" />
+            <div class="panel-heading">
+                Question nr. {{tQ.ID}}
             </div>
-          </div>
-          </div>
-          </div>
+            <div class="create-question">
+                <div class="panel-body">
+                    <div class="question">
+                        <div>Question type. {{tQ.Type}}</div>
+                        <label for="Text[{{tQ.ID}}]">Text</label>
+                        <textarea rows="1" cols="40" name="Text[{{tQ.ID}}]" ng-model="teacherQuestions[$index].Text" >{{tQ.Text}}</textarea>
+                        <label for="TextEN[{{tQ.ID}}]">TextEN</label>
+                        <textarea rows="1" cols="40" name="TextEN[{{tQ.ID}}]" ng-model="teacherQuestions[$index].TextEN" >{{tQ.TextEN}}</textarea>
+                        <label for="Url[{{tQ.ID}}]">Image URL</label>
+                        <textarea rows="1" cols="40" name="Url[{{tQ.ID}}]" ng-model="teacherQuestions[$index].ImageURL" >{{tQ.ImageURL}}</textarea>
+                    </div>
+                    <div ngIf="tQ.Type == 'multi' || tQ.Type == 'single'">
+                        <hr />
+                        <div ng-repeat="AtQ in tQ.Answers track by $index">
+                            <h5>Answer nr. {{AtQ.ID}}</h5>
+                            <label for="Text[{{AtQ.ID}}]">Text</label> 
+                            <textarea rows="1" cols="75" name="Text[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].Text" >{{AtQ.Text}}</textarea>
+                            <label for="TextEN[{{AtQ.ID}}]">TextEN</label>
+                            <textarea rows="1" cols="75" name="TextEN[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].TextEN" >{{AtQ.TextEN}}</textarea>
+                            <label for="Url[{{AtQ.ID}}]">Image URL</label>
+                            <textarea rows="1" cols="50" name="Url[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].ImageUrl" >{{AtQ.ImageURL}}</textarea>
+                            <label for="Weight[{{AtQ.ID}}]">Weight value 1 - 5</label>
+                            <textarea rows="1" cols="50" name="Weight[{{AtQ.ID}}]" ng-model="teacherQuestions[$parent.$index].Answers[$index].Weight" >{{AtQ.Weight}}</textarea>
+                        </div>
+                          <input type="button" class="btn btn-primary" ng-click="addAnswer('Teacher', tQ.ID)" value="Add Answer Option" />
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div ng-repeat="cQ in courseQuestions track by $index">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-            Question nr. {{cQ.ID}}
-        </div>
-        <div class="create-question">
-            <div class="panel-body">
-        <div class="question">
-            <div>Question type. {{cQ.Type}}</div>
-            <label for="Text[{{cQ.ID}}]">Text</label>
-            <textarea rows="1" cols="50" name="Text[{{cQ.ID}}]" ng-model="courseQuestions[$index].Text" ></textarea>
-            <label for="TextEN[{{cQ.ID}}]">TextEN</label>
-            <textarea rows="1" cols="50" name="TextEN[{{cQ.ID}}]" ng-model="courseQuestions[$index].TextEN" >{{cQ.TextEN}}</textarea>
-            <label for="Url[{{cQ.ID}}]">Image URL</label>
-            <textarea rows="1" cols="50" name="Url[{{cQ.ID}}]" ng-model="courseQuestions[$index].Answers[$index].ImageURL" >{{cQ.ImageURL}}</textarea>
-        </div>
-        <div ngIf="tQ.Type == 'multi' || tQ.Type == 'single'">
-            <div ng-repeat="AcQ in cQ.Answers track by $index">
-                <h5>Answer nr. {{AcQ.ID}}</h5>
-                <label for="Text[{{AcQ.ID}}]">Text</label>
-                <textarea rows="1" cols="50" name="Text[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answers[$index].Text" ></textarea>
-                <label for="TextEN[{{AcQ.ID}}]">TextEN</label>
-                <textarea rows="1" cols="50" name="TextEN[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answers[$index].TextEN" ></textarea>
-                <label for="Url[{{AcQ.ID}}]">Image URL</label>
-                <textarea rows="1" cols="50" name="Url[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answer[$index].ImageURL" ></textarea>
-                <label for="Weight[{{AcQ.ID}}]">Weight value 1 - 5</label>
-                <textarea rows="1" cols="50" name="Weight[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answers[$index].Weight" ></textarea>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Question nr. {{cQ.ID}}
             </div>
-            <input type="button" class="button" ng-click="addAnswer('Course', cQ.ID)" value="Add Answer Option" />
-        </div>
-        </div>
-        </div>
+            <div class="create-question">
+                <div class="panel-body">
+                    <div class="question">
+                        <div>Question type. {{cQ.Type}}</div>
+                        <label for="Text[{{cQ.ID}}]">Text</label>
+                        <textarea rows="1" cols="40" name="Text[{{cQ.ID}}]" ng-model="courseQuestions[$index].Text" ></textarea>
+                        <label for="TextEN[{{cQ.ID}}]">TextEN</label>
+                        <textarea rows="1" cols="40" name="TextEN[{{cQ.ID}}]" ng-model="courseQuestions[$index].TextEN" >{{cQ.TextEN}}</textarea>
+                        <label for="Url[{{cQ.ID}}]">Image URL</label>
+                        <textarea rows="1" cols="40" name="Url[{{cQ.ID}}]" ng-model="courseQuestions[$index].Answers[$index].ImageURL" >{{cQ.ImageURL}}</textarea>
+                    </div>
+                    <hr />
+                    <div ngIf="tQ.Type == 'multi' || tQ.Type == 'single'">
+                        <div ng-repeat="AcQ in cQ.Answers track by $index">
+                            <h5>Answer nr. {{AcQ.ID}}</h5>
+                            <label for="Text[{{AcQ.ID}}]">Text</label>
+                            <textarea rows="1" cols="75" name="Text[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answers[$index].Text" ></textarea>
+                            <label for="TextEN[{{AcQ.ID}}]">TextEN</label>
+                            <textarea rows="1" cols="75" name="TextEN[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answers[$index].TextEN" ></textarea>
+                            <label for="Url[{{AcQ.ID}}]">Image URL</label>
+                            <textarea rows="1" cols="50" name="Url[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answer[$index].ImageURL" ></textarea>
+                            <label for="Weight[{{AcQ.ID}}]">Weight value 1 - 5</label>
+                            <textarea rows="1" cols="50" name="Weight[{{AcQ.ID}}]" ng-model="courseQuestions[$parent.$index].Answers[$index].Weight" ></textarea>
+                        <hr />
+                        </div>
+                        <input type="button" class="btn btn-primary" ng-click="addAnswer('Course', cQ.ID)" value="Add Answer Option" />
+                    </div>
+                </div>
+            </div>
         </div>   
     </div>
 	  <div class="row">
@@ -138,9 +139,9 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-4 offsett-4">
+        <div class="col-md-4">
             <div class="save-template">
-                <input type="button" class="button" ng-click="submit()" value="Save Template" />
+                <input type="button" class="btn btn-primary" ng-click="submit()" value="Save Template" />
             </div>
         </div>
     </div>
