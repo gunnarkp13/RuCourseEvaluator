@@ -118,3 +118,18 @@ li {
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
 }
+
+.panel-primary > .panel-heading {
+	text-align: center;
+	background-color: black;
+	border-color: black;
+}
+
+.evaluations {
+	overflow: auto;
+	height: 500px;
+}
+
+.panel-primary {
+	border-color: black;
+}

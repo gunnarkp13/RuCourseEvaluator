@@ -11,7 +11,6 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 	'sessionCookie', 
 	function ($scope, $location, $rootScope, $http, $routeParams, evaluationServer, serverResource, sessionCookie) {
 		
-		var tempID = $routeParams.tempObj;
 		$scope.teacherQuestions = [];
 		$scope.courseQuestions = [];
 		$scope.templateID = '';
@@ -19,14 +18,9 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 		$scope.TemplateTitleEN = '';
 		$scope.introText = '';
 		$scope.introTextEN = '';
-		
-		console.log("nanan");
-		console.log(Object.keys($routeParams.tempObj));
 
-		
-
-		if(tempID !== undefined ) {
-			serverResource.getTemplate(tempID, sessionCookie.getToken())
+		if($routeParams.tempObj !== undefined ) {
+			serverResource.getTemplate($routeParams.tempObj, sessionCookie.getToken())
 			.success(function (response) {
 				console.log(Object.keys(response));
 				$scope.templateID = response.ID;
@@ -39,19 +33,58 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 			})
 			.error(function (response) {
 				console.log("error");
-			});
+			});		
+		}
 
-			
-		}	
+		$scope.addQuestion = function (sType, qType) {
+			var qId = 0;
+			if (sType === 'course') {
+				qId = $scope.courseQuestions.size();
+			} else {
+				qId = $scope.teacherQuestions.size();
+			}
 
-		$scope.addQuestion = function(sType, qType ) {
+			var tmpQ = {
+				"ID": qId,
+				"Text": '',
+				"TextEN": '',
+				"ImageURL": '',
+				"Type": '',
+				"Answers": []
+			};
 
+			if (sType === 'course') {
+				$scope.courseQuestions.push(tmpQ);
+			} else {
+				$scope.teacherQuestions.push(tmpQ);
+			}			
 		};
 
-		$scope.deleteQuestion = function (sType, qId) {
+		$scope.addAnswer = function (sType, qId) {
+			var aId = 0;
+			if (sType === 'course') {
+				aId = $scope.courseQuestions[$scope.courseQuestions.size() - 1].Answers.size();
+			} else {
+				aId = $scope.teacherQuestions[$scope.teacherQuestions.size() - 1].Answers.size();
+			}
+			 
+			var answer = {
+				"ID": aId,
+				"Text": '',
+				"TextEN": '',
+				"ImageURL": '',
+				"Weight": ''
+			};
 
+			if (sType === 'course') {
+				$scope.courseQuestions[qId].Answers.push(answer);
+			} else {
+				$scope.teacherQuestions[qId].Answers.push(answer);
+			}
 		};
 
-		
+		$scope.deletQuestion = function (sType, qId) {
+
+		};		
 	}
 ]);

@@ -1,12 +1,21 @@
 <div class="container">
-	<ul>
-		<li ng-repeat="evalObj in tempList">
-			<div class="row">
-				<div class="col-md-2"></div>
-				<div class="evalList list-group-item col-md-8" ng-click="useTemplate(evalObj)">
-					{{evalObj.ID}}  {{evalObj.Title}}  {{evalObj.TitlEN}}
-				</div>
+	<div class="panel panel-primary">
+        <div class="panel-heading">
+           	Listi af template
+       	</div>
+       	<div class="evaluations" scroll-glue>
+        	<div class="panel-body">
+				<ul>
+					<li ng-repeat="evalObj in tempList">
+						<div class="row">
+							<div class="col-md-2"></div>
+							<div class="evalList list-group-item col-md-8" ng-click="useTemplate(evalObj)">
+								{{evalObj.ID}}  {{evalObj.Title}}  {{evalObj.TitlEN}}
+							</div>
+						</div>
+					</li>
+				</ul>
 			</div>
-		</li>
-	</ul>
+		</div>
+	</div>
 </div>

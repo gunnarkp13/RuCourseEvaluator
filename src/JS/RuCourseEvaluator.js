@@ -83,7 +83,7 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + '/api/v1/evaluations');
 			},
-		    getEval: function(id, token) {													/**/
+		    getEval: function(id, token) {															/**/
 		    	$http.defaults.headers.common.Authorization = 'Basic ' + token;
 				return $http.get(evaluationServer + '/api/v1/evaluations/' + id);
 			},
