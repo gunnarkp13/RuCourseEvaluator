@@ -1,0 +1,13 @@
+<hr>
+<h3>{{tQ.Text}}</h3>
+<p>Multiple choice</p>
+<div class="btn-group" data-toggle="buttons">
+    <div ng-repeat="AtQ in tQ.Answers">
+		<label class="btn btn-primary">
+			<input type="checkbox" ng-model="" value="">{{AtQ.Text}}</input>
+		</label>
+		<label class="btn btn-primary">
+			<input type="checkbox"  value="">{{AtQ.TextEN}}</input>
+		</label>
+    </div>
+</div>

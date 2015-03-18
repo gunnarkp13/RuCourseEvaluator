@@ -13,6 +13,8 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 		$scope.courses = [];
 		$scope.semester = [];
 		$scope.evalID = '';
+		$scope.teachers = [];
+		$scope.questionAns = [];
 
 		if($routeParams.evalID !== undefined) {
 
@@ -30,18 +32,27 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 					for (var cQ in response['CourseQuestions']) {
 						$scope.courseQuestions.push(response['CourseQuestions'][cQ]);
 					}
-					return {
-						restrict: "E",
-						scope: {
-							ngModel: "="
-						},
-						templateUrl: "studentEvaluationView.html",
-					};
 				})
 				.error(function (response) {
 					console.log("something went wrong: " + response);
 				});
+
+				serverResource.getCourseTeachers($routeParams.evalCourse, $routeParams.evalSemester, sessionCookie.getToken())
+				.success(function (response) {
+					console.log("success");
+					for(var teacher in response) {
+						$scope.teachers.push(response[teacher]);
+						console.log(response[teacher].SSN);
+					}
+				})
+				.error(function (response) {
+					console.log("Hver Þremillinn");
+				});
 			}
+
+		$scope.submitQuestion = function (Weight, SSN, qID) {
+
+		};
 		
 		$scope.submitEval = function () {
 			console.log($scope.tQID);
@@ -50,4 +61,57 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 			$location.path('/student');
 		};
 	}
+])
+.directive('tMultiQuestion', [
+	function () {
+		return {
+    		restrict: 'A',
+    		templateUrl: 'src/html/tMultiQuestion.html'
+		};
+	}
+])
+.directive('tSingleQuestion', [
+	function () {
+		return {
+    		restrict: 'A',
+    		templateUrl: 'src/html/tSingleQuestion.html'
+ 		};
+	}
+])
+.directive('tTextQuestion', [
+	function () {
+		console.log("tTextQuestion");
+		return {
+    		restrict: 'A',
+    		templateUrl: 'src/html/tTextQuestion.html'
+
+  		};
+	}
+])
+.directive('cMultiQuestion', [
+	function () {
+		console.log("cMultiQuestion");
+		return {
+    		restrict: 'A',
+    		templateUrl: 'src/html/cMultiQuestion.html'
+		};
+	}
+])
+.directive('cSingleQuestion', [
+	function () {
+		console.log("cSingleQuestion");
+		return {
+    		restrict: 'A',
+    		templateUrl: 'src/html/cSingleQuestion.html'
+ 		};
+	}
+])
+.directive('cTextQuestion', [
+	function () {
+		return {
+    		restrict: 'A',
+    		templateUrl: 'src/html/cTextQuestion.html'
+  		};
+	}
 ]);
+

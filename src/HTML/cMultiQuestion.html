@@ -1,0 +1,14 @@
+<hr>
+<h3>{{cQ.Text}}</h3>
+<p>Multiple choice</p>
+<div class="btn-group" data-toggle="buttons">
+    <div ng-repeat="AcQ in cQ.Answers">
+		<label class="btn btn-primary">
+			<input type="checkbox" ng-model="" value="{{AcQ.}}">{{AcQ.Text}}</input>
+		</label>
+		<label class="btn btn-primary">
+			<input type="checkbox"  value="">{{AcQ.TextEN}}</input>
+		</label>
+    </div>
+</div>
+
