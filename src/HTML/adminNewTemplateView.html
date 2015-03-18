@@ -22,15 +22,68 @@
 			<input type="text" id="descriptionEn" placeholder="Description" />
 		</div>
 	</div>
-	<div ng-repeat="question in questions">
 
-	</div>
+	<div ng-repeat="tQ in teacherQuestions track by $index">
+      <hr>
+      <div>
+        <h3>Quetion nr. {{tQ.ID}}</h3>
+        <div>Question type. {{tQ.Type}}</div>
+        <label for="Text[{{tQ.ID}}]">Text</label>
+        <input type="text" name="Text[{{tQ.ID}}]" ng-model="Text[tQ.ID]" value="{{tQ.Text}}" placeholder="{{tQ.Text}}" />
+        <label for="TextEN[{{tQ.ID}}]">TextEN</label>
+        <input type="text" name="TextEN[{{tQ.ID}}]" ng-model="TextEN[tQ.ID]" value="{{tQ.TextEN}}" placeholder="{{tQ.TextEN}}"/>
+        <label for="Url[{{tQ.ID}}]">Image URL</label>
+        <input type="text" name="Url[{{tQ.ID}}]" ng-model="Url[tQ.ID]" value="{{tQ.ImageURL}}" paceholder="{{tQ.ImageURL}}" />
+      </div>
+      <div ngIf="tQ.Type == 'multi' || tQ.Type == 'single'">
+        <hr>
+        <div ng-repeat="AtQ in tQ.Answers">
+          <h5>Answer nr. {{AtQ.ID}}</h5>
+          <label for="Text[{{AtQ.ID}}]">Text</label>
+          <input type="text" name="Text[{{AtQ.ID}}]" ng-model="Text[AtQ.ID]" value="{{AtQ.Text}}" placeholder="{{AtQ.Text}}" />
+          <label for="TextEN[{{AtQ.ID}}]">TextEN</label>
+          <input type="text" name="TextEN[{{AtQ.ID}}]" ng-model="TextEN[AtQ.ID]" value="{{AtQ.TextEN}}" placeholder="{{AtQ.TextEN}}"/>
+          <label for="Url[{{AtQ.ID}}]">Image URL</label>
+          <input type="text" name="Url[{{AtQ.ID}}]" ng-model="Url[AtQ.ID]" value="{{AtQ.ImageURL}}" paceholder="{{AtQ.ImageURL}}" />
+          <label for="Weight[{{AtQ.ID}}]">Weight value 1 - 5</label>
+          <input type="text" name="Weight[{{AtQ.ID}}]" ng-model="Weight[AtQ.ID]" value="{{AtQ.Weight}}" paceholder="{{AtQ.Weight}}" />
+        </div>
+      </div>
+  </div>
+  <div ng-repeat="cQ in courseQuestions track by $index">
+      <hr>
+      <div>
+        <h3>Quetion nr. {{cQ.ID}}</h3>
+        <div>Question type. {{cQ.Type}}</div>
+        <label for="Text[{{cQ.ID}}]">Text</label>
+        <input type="text" name="Text[{{cQ.ID}}]" ng-model="Text[cQ.ID]" value="{{cQ.Text}}" placeholder="{{cQ.Text}}" />
+        <label for="TextEN[{{cQ.ID}}]">TextEN</label>
+        <input type="text" name="TextEN[{{cQ.ID}}]" ng-model="TextEN[cQ.ID]" value="{{cQ.TextEN}}" placeholder="{{cQ.TextEN}}"/>
+        <label for="Url[{{cQ.ID}}]">Image URL</label>
+        <input type="text" name="Url[{{cQ.ID}}]" ng-model="Url[cQ.ID]" value="{{cQ.ImageURL}}" paceholder="{{cQ.ImageURL}}" />
+      </div>
+      <div ngIf="tQ.Type == 'multi' || tQ.Type == 'single'">
+        <hr>
+        <div ng-repeat="AcQ in cQ.Answers">
+          <h5>Answer nr. {{AcQ.ID}}</h5>
+          <label for="Text[{{AcQ.ID}}]">Text</label>
+          <input type="text" name="Text[{{AcQ.ID}}]" ng-model="Text[AcQ.ID]" value="{{AcQ.Text}}" placeholder="{{AcQ.Text}}" />
+          <label for="TextEN[{{AcQ.ID}}]">TextEN</label>
+          <input type="text" name="TextEN[{{AcQ.ID}}]" ng-model="TextEN[AcQ.ID]" value="{{AcQ.TextEN}}" placeholder="{{AcQ.TextEN}}"/>
+          <label for="Url[{{AcQ.ID}}]">Image URL</label>
+          <input type="text" name="Url[{{AcQ.ID}}]" ng-model="Url[AcQ.ID]" value="{{AcQ.ImageURL}}" paceholder="{{AcQ.ImageURL}}" />
+          <label for="Weight[{{AcQ.ID}}]">Weight value 1 - 5</label>
+          <input type="text" name="Weight[{{AcQ.ID}}]" ng-model="Weight[AcQ.ID]" value="{{AcQ.Weight}}" paceholder="{{AcQ.Weight}}" />
+        </div> 
+      </div>   
+  </div>
+
 	<div class="row">
         <div class="dropdown">
             <div id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary">
                 New question <span class="caret"></span>
             </div>
-    		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
               <li class="dropdown-submenu">
                 <div class="choices">Course <span class="caret"></span></div>
                 <ul class="dropdown-menu">
@@ -54,5 +107,5 @@
               </li>
             </ul>
         </div>
-	</div>
+  </div>
 </div>

@@ -26,8 +26,15 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 				$scope.templateID = response.ID;
 				$scope.TemplateTitle = response.Title;
 				$scope.TemplateTitleEN = response.TitleEN;
-				$scope.teacherQuestions = response.TeacherQuestions;
-				$scope.courseQuestions = response.CourseQuestions;
+				console.log(response['TeacherQuestions']);
+				for (var tQ in response['TeacherQuestions']) {
+					console.log(response['TeacherQuestions'][tQ]);
+					$scope.teacherQuestions.push(response['TeacherQuestions'][tQ]);
+				}
+				for (var cQ in response['CourseQuestions']) {
+					console.log(cQ);
+					$scope.courseQuestions.push(response['CourseQuestions'][cQ]);
+				}
 				$scope.introText = response.IntroText;
 				$scope.introTextEN = response.IntroTextEN;
 			})
@@ -39,9 +46,9 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 		$scope.addQuestion = function (sType, qType) {
 			var qId = 0;
 			if (sType === 'course') {
-				qId = $scope.courseQuestions.size();
+				qId = $scope.courseQuestions.length;
 			} else {
-				qId = $scope.teacherQuestions.size();
+				qId = $scope.teacherQuestions.length;
 			}
 
 			var tmpQ = {
@@ -63,9 +70,9 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 		$scope.addAnswer = function (sType, qId) {
 			var aId = 0;
 			if (sType === 'course') {
-				aId = $scope.courseQuestions[$scope.courseQuestions.size() - 1].Answers.size();
+				aId = $scope.courseQuestions[$scope.courseQuestions.length - 1].Answers.length;
 			} else {
-				aId = $scope.teacherQuestions[$scope.teacherQuestions.size() - 1].Answers.size();
+				aId = $scope.teacherQuestions[$scope.teacherQuestions.length - 1].Answers.length;
 			}
 			 
 			var answer = {
