@@ -50,4 +50,52 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 			$location.path('/student');
 		};
 	}
+])
+.directive('tMultiQuestion', [
+	function () {
+		return {
+    		restrict: 'A',
+    		templateUrl: 'tMultiQuestion.html' 
+		}
+	}
+])
+.directive('tSingleQuestion', [
+	function () {
+		return {
+    		restrict: 'A',
+    		templateUrl: 'tSingleQuestion.html'
+ 		}
+	}
+])
+.directive('tTextQuestion', [
+	function () {
+		return {
+    		restrict: 'A',
+    		templateUrl: 'tTextQuestion.html'
+  		}
+	}
+])
+.directive('cMultiQuestion', [
+	function () {
+		return {
+    		restrict: 'A',
+    		templateUrl: 'cMultiQuestion.html'
+		}
+	}
+])
+.directive('cSingleQuestion', [
+	function () {
+		return {
+    		restrict: 'A',
+    		templateUrl: 'cSingleQuestion.html'
+ 		}
+	}
+])
+.directive('cTextQuestion', [
+	function () {
+		return {
+    		restrict: 'A',
+    		templateUrl: 'cTextQuestion.html'
+  		}
+	}
 ]);
