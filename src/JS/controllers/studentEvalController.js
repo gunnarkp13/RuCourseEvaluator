@@ -3,10 +3,11 @@
 angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 	'$scope',
 	'$routeParams',
+	'$location',
 	'evaluationServer',
 	'serverResource',
 	'sessionCookie', 
-	function ($scope, $routeParams, evaluationServer, serverResource, sessionCookie) {
+	function ($scope, $routeParams, $location, evaluationServer, serverResource, sessionCookie) {
 		$scope.teacherQuestions = [];
 		$scope.courseQuestions = [];
 		$scope.courses = [];
@@ -41,6 +42,12 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 					console.log("something went wrong: " + response);
 				});
 			}
-		}
-	
+		
+		$scope.submitEval = function () {
+			console.log($scope.tQID);
+			serverResource.getCourseEval($routeParams.evalCourse, 
+				$routeParams.evalSemester, $routeParams.evalID,  sessionCookie.getToken());
+			$location.path('/student');
+		};
+	}
 ]);

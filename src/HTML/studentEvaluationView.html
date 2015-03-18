@@ -9,7 +9,7 @@
 				<form role="form">
 					<div class="form-group">
 						<label for="name">Text Area</label>
-						<textarea class="form-control" rows="3"></textarea>
+						<textarea class="form-control" name="tQID" ng-model="tQ.ID" rows="3"></textarea>
 					</div>
 				</form>
 			
@@ -136,6 +136,6 @@
 	        </div>
 	    </div>
 	</div>
-<input type="submit" value="Skila mati">
+<input type="submit" value="Skila mati" ng-click="submitEval()">
 
 </div>
