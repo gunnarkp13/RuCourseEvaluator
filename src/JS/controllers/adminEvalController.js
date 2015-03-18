@@ -34,7 +34,7 @@ angular.module('RuCourseEvaluator').controller('adminEvalController', [
   		}
 
   		$scope.setTemplate = function (tempID, tempName) {
-        $scope.message = tempID + " " + tempName;
+        $scope.message = tempID + ": " + tempName;
   			$scope.templateID = tempID;
   		};
 

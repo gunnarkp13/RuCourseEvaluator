@@ -1,7 +1,58 @@
-<div>
+<div class="container">
 	<h1>
-		blalaala
-		{{templateID}}
-		{{TemplateTitle}}
+		Create template
 	</h1>
+	<div class="row">
+		<div class="col-md-4">
+			<label for="titleIs">Titill</label>
+			<input type="text" id="titleIs" placeholder="Titill á íslensku" />
+		</div>
+		<div class="col-md-4">
+			<label for="titleEn">Title</label>
+			<input type="text" id="titleEn" placeholder="Title in English" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<label for="descriptionIs">Lýsing</label>
+			<input type="text" id="descriptionIs" placeholder="Lýsing" />
+		</div>
+		<div class="col-md-4">
+			<label for="descriptionEn">Description</label>
+			<input type="text" id="descriptionEn" placeholder="Description" />
+		</div>
+	</div>
+	<div ng-repeat="question in questions">
+
+	</div>
+	<div class="row">
+        <div class="dropdown">
+            <div id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary">
+                New question <span class="caret"></span>
+            </div>
+    		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+              <li class="dropdown-submenu">
+                <div class="choices">Course <span class="caret"></span></div>
+                <ul class="dropdown-menu">
+                  <li><div tabindex="-1" class="choices" ng-click="addQuestion(course, single)">Single choice </div></li>
+                  <li class="divider"></li>
+                  <li><div tabindex="-1" class="choices" ng-click="addQuestion(course, multi)">Multiple choice</div></li>
+                  <li class="divider"></li>
+                  <li><div tabindex="-1" class="choices" ng-click="addQuestion(course, text)">Text question</div></li>
+                </ul>
+              </li>
+              <li class="divider"></li>
+              <li class="dropdown-submenu">
+                <div class="choices">Teacher <span class="caret"></span></div>
+                <ul class="dropdown-menu">
+                  <li><div tabindex="-1" class="choices" ng-click="addQuestion(teacher, single)">Single choice</div></li>
+                  <li class="divider"></li>
+                  <li><div tabindex="-1" class="choices" ng-click="addQuestion(teacher, multi)">Multiple choice</div></li>
+                  <li class="divider"></li>
+                  <li><div tabindex="-1" class="choices" ng-click="addQuestion(teacher, text)">Text question</div></li>
+                </ul>
+              </li>
+            </ul>
+        </div>
+	</div>
 </div>

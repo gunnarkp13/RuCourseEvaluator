@@ -48,7 +48,7 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 
 		};
 
-		$scope.deletQuestion = function (sType, qId) {
+		$scope.deleteQuestion = function (sType, qId) {
 
 		};
 
