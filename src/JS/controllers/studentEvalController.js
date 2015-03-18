@@ -7,37 +7,40 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 	'serverResource',
 	'sessionCookie', 
 	function ($scope, $routeParams, evaluationServer, serverResource, sessionCookie) {
-		$scope.questions = [];
-		$scope.course = [];
+		$scope.teacherQuestions = [];
+		$scope.courseQuestions = [];
+		$scope.courses = [];
 		$scope.semester = [];
 		$scope.evalID = '';
 
-		serverResource.getMyCourses(sessionCookie.getToken())
-		.success(function (response) {
-			console.log("success: getMyCourses");
-			console.log(response);
-			$scope.course = response;
-			console.log("test course = " + $scope.course.CourseID);
-		})
-		.error(function (response) {
-			$scope.errorMessage = 'Ekki náðist samband eða eitthvað annað fór úrskeiðis';
-			console.log("something went wrong: " + response);
-		});
+		if($routeParams.evalID !== undefined) {
 
-
-	}
-])
-.directive("evaluationQuestion", function() {
-	return {
-
-		restrict: "E",
-		scope: {
-			ngModel: "="
-		},
-		templateUrl: "studentEvaluationView.html",
-		link: function(scope, element, attributes) {
-			//something
-			console.log("question");
+				console.log($routeParams.evalID);
+				console.log($routeParams.evalCourse);
+				console.log($routeParams.evalSemester);
+				serverResource.getCourseEval($routeParams.evalCourse, $routeParams.evalSemester, $routeParams.evalID, sessionCookie.getToken())
+				.success(function (response) {
+					console.log("success");
+					//console.log(response);
+					$scope.questions = response;
+					for (var tQ in response['TeacherQuestions']) {
+						$scope.teacherQuestions.push(response['TeacherQuestions'][tQ]);
+					}
+					for (var cQ in response['CourseQuestions']) {
+						$scope.courseQuestions.push(response['CourseQuestions'][cQ]);
+					}
+					return {
+						restrict: "E",
+						scope: {
+							ngModel: "="
+						},
+						templateUrl: "studentEvaluationView.html",
+					};
+				})
+				.error(function (response) {
+					console.log("something went wrong: " + response);
+				});
+			}
 		}
-	};
-});
+	
+]);

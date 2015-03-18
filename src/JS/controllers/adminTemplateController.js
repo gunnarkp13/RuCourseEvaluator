@@ -22,17 +22,17 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 		if($routeParams.tempObj !== undefined ) {
 			serverResource.getTemplate($routeParams.tempObj, sessionCookie.getToken())
 			.success(function (response) {
-				console.log(Object.keys(response));
+				//console.log(Object.keys(response));
 				$scope.templateID = response.ID;
 				$scope.TemplateTitle = response.Title;
 				$scope.TemplateTitleEN = response.TitleEN;
-				console.log(response['TeacherQuestions']);
+				//console.log(response['TeacherQuestions']);
 				for (var tQ in response['TeacherQuestions']) {
-					console.log(response['TeacherQuestions'][tQ]);
+					//console.log(response['TeacherQuestions'][tQ]);
 					$scope.teacherQuestions.push(response['TeacherQuestions'][tQ]);
 				}
 				for (var cQ in response['CourseQuestions']) {
-					console.log(cQ);
+					//console.log(cQ);
 					$scope.courseQuestions.push(response['CourseQuestions'][cQ]);
 				}
 				$scope.introText = response.IntroText;
