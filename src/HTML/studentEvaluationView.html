@@ -1,28 +1,40 @@
 <div class="container">
 	<div ng-repeat="quest in teacherQuestions track by $index">
 		<div question>
-			<div ng-if="quest.Type == 'multiple'">
-				<div t-multi-question></div>
-			</div>
-			<div ng-if="quest.Type == 'single'">
-				<div t-single-question></div>
-			</div>
-			<div ng-if="quest.Type == 'text'">
-				<div t-text-question></div>
-			</div>
+			<form>
+				<div ng-if="quest.Type == 'multiple'">
+					<div t-multi-question></div>
+				</div>
+			</form>
+			<form>
+				<div ng-if="quest.Type == 'single'">
+					<div t-single-question></div>
+				</div>
+			</form>
+			<form>
+				<div ng-if="quest.Type == 'text'">
+					<div t-text-question></div>
+				</div>
+			</form>
 		</div>
 	</div>	
 	<div ng-repeat="quest in courseQuestions track by $index">
 		<div question>
-			<div ng-if="quest.Type == 'multiple'">
-				<div c-multi-question></div>
-			</div>
-			<div ng-if="quest.Type == 'single'">
-				<div c-single-question></div>
-			</div>
-			<div ng-if="quest.Type == 'text'">
-				<div c-text-question></div>
-			</div>
+			<form>
+				<div ng-if="quest.Type == 'multiple'">
+					<div t-multi-question></div>
+				</div>
+			</form>
+			<form>
+				<div ng-if="quest.Type == 'single'">
+					<div t-single-question></div>
+				</div>
+			</form>
+			<form>
+				<div ng-if="quest.Type == 'text'">
+					<div t-text-question></div>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
