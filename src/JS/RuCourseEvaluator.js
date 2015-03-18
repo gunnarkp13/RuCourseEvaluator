@@ -9,7 +9,7 @@ angular.module("RuCourseEvaluator", ['ngRoute'])
 			templateUrl: "",
 			controller:  ""
 		})
-		.when("/studentEval/:evalObj", {
+		.when("/studentEval/:evalID/:evalCourse/:evalSemester", {
 			templateUrl: "src/html/studentEvaluationView.html",
 			controller: "StudentEvalController"
 		})

@@ -25,7 +25,8 @@ angular.module('RuCourseEvaluator').controller("studentEvalListController", [
 		});
 
 		$scope.takeEval = function (evalObj) {
-			$location.path('/studentEval/' + evalObj);
+			var gogo = evalObj;
+			$location.path('/studentEval/' + evalObj.ID + '/' + evalObj.CourseID + '/' + evalObj.Semester);
 		};
 
 		$scope.logout = function () {

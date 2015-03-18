@@ -28,7 +28,7 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 				$scope.templateID = response.ID;
 				$scope.TemplateTitle = response.Title;
 				$scope.TemplateTitleEN = response.TitleEN;
-				console.log(response['TeacherQuestions']);
+				//console.log(response['TeacherQuestions']);
 				for (var tQ in response['TeacherQuestions']) {
 					//console.log(response['TeacherQuestions'][tQ]);
 					$scope.teacherQuestions.push(response['TeacherQuestions'][tQ]);
