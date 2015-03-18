@@ -90,7 +90,7 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 		}
 
 		$scope.submitQuestion = function (Weight, SSN, qID) {
-				
+
 		};
 		
 		$scope.submitEval = function () {
