@@ -18,9 +18,6 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 		$scope.TemplateTitleEN = '';
 		$scope.introText = '';
 		$scope.introTextEN = '';
-		
-		console.log("nanan");
-		console.log(Object.keys($routeParams.tempObj));
 
 		if($routeParams.tempObj !== undefined ) {
 			serverResource.getTemplate($routeParams.tempObj, sessionCookie.getToken())
@@ -36,19 +33,14 @@ angular.module('RuCourseEvaluator').controller("adminTemplateController",[
 			})
 			.error(function (response) {
 				console.log("error");
-			});
-
-			
+			});		
 		}	
-
 		$scope.addQuestion = function(sType, qType ) {
 
 		};
 
 		$scope.deletQuestion = function (sType, qId) {
 
-		};
-
-		
+		};		
 	}
 ]);
