@@ -13,6 +13,8 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 		$scope.courses = [];
 		$scope.semester = [];
 		$scope.evalID = '';
+		$scope.teachers = [];
+		$scope.questionAns = [];
 
 		if($routeParams.evalID !== undefined) {
 
@@ -30,18 +32,27 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 					for (var cQ in response['CourseQuestions']) {
 						$scope.courseQuestions.push(response['CourseQuestions'][cQ]);
 					}
-					return {
-						restrict: "E",
-						scope: {
-							ngModel: "="
-						},
-						templateUrl: "studentEvaluationView.html",
-					};
 				})
 				.error(function (response) {
 					console.log("something went wrong: " + response);
 				});
+
+				serverResource.getCourseTeachers($routeParams.evalCourse, $routeParams.evalSemester, sessionCookie.getToken())
+				.success(function (response) {
+					console.log("success");
+					for(var teacher in response) {
+						$scope.teachers.push(response[teacher]);
+						console.log(response[teacher].SSN);
+					}
+				})
+				.error(function (response) {
+					console.log("Hver Þremillinn");
+				});
 			}
+
+		$scope.submitQuestion = function (Weight, SSN, qID) {
+
+		};
 		
 		$scope.submitEval = function () {
 			console.log($scope.tQID);
@@ -56,7 +67,7 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 		return {
     		restrict: 'A',
     		templateUrl: 'tMultiQuestion.html' 
-		}
+		};
 	}
 ])
 .directive('tSingleQuestion', [
@@ -64,7 +75,7 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 		return {
     		restrict: 'A',
     		templateUrl: 'tSingleQuestion.html'
- 		}
+ 		};
 	}
 ])
 .directive('tTextQuestion', [
@@ -72,7 +83,7 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 		return {
     		restrict: 'A',
     		templateUrl: 'tTextQuestion.html'
-  		}
+  		};
 	}
 ])
 .directive('cMultiQuestion', [
@@ -80,7 +91,7 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 		return {
     		restrict: 'A',
     		templateUrl: 'cMultiQuestion.html'
-		}
+		};
 	}
 ])
 .directive('cSingleQuestion', [
@@ -88,7 +99,7 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 		return {
     		restrict: 'A',
     		templateUrl: 'cSingleQuestion.html'
- 		}
+ 		};
 	}
 ])
 .directive('cTextQuestion', [
@@ -96,6 +107,6 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 		return {
     		restrict: 'A',
     		templateUrl: 'cTextQuestion.html'
-  		}
+  		};
 	}
 ]);
