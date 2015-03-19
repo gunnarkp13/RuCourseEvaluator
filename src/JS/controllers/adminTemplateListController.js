@@ -1,5 +1,5 @@
 "use strict";
-
+//controller til að prenta lista af templatum sem eru til.
 angular.module('RuCourseEvaluator').controller("adminTemplateListController", [
 	'$scope',
 	'$location',

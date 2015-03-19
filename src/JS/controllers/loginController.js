@@ -1,5 +1,5 @@
 "use strict";
-
+//login controller 
 angular.module('RuCourseEvaluator').controller("loginController", [
 	'$scope',
 	'$location',
@@ -26,6 +26,7 @@ angular.module('RuCourseEvaluator').controller("loginController", [
 		        	response['User']['FullName'],
 		        	response['User']['Role']
 		        );
+		        //routar á admin eða student veiwið
 		        if(response['User']['Role'] === 'admin'){
 		        	console.log(sessionCookie.getToken());
 		        	$location.path('/admin');
