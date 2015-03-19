@@ -11,7 +11,7 @@ RuCourseEvalutor er rosaflott evaluationserver forrit búið til af
 * Guðjóni Péturssyni gudjon12@ru.is
 * Ólafi Ívari Jónssyni olafurij12@ru.is
 
-* Git-Repo: https://github.com/stefand12/NewIrc - læst eins og er.
+* Git-Repo: https://github.com/gunnarkp13/RuCourseEvaluator.git - læst eins og er.
 
 Smíða RuCourseEvalutor
 ------------
