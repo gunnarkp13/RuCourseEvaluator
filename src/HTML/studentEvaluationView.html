@@ -1,33 +1,4 @@
 <div class="container">
-	<div ng-repeat="tT in teachers">
-		<div ng-repeat="tQ in teacherQuestions track by $index">
-			<div question>
-				<div ng-if="tQ.Type == 'multiple'">
-					<div t-multi-question></div>
-				</div>
-			
-				<div ng-if="tQ.Type == 'single'">
-					<div t-single-question></div>
-				</div>
-				<div ng-if="tQ.Type == 'text'">
-					<div t-text-question></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div ng-repeat="cQ in courseQuestions track by $index">
-		<div question>
-			<div ng-if="cQ.Type == 'multiple'">
-				<div t-multi-question></div>
-			</div>
-			<div ng-if="cQ.Type == 'single'">
-				<div t-single-question></div>
-			</div>
-			<div ng-if="cQ.Type == 'text'">
-				<div t-text-question></div>
-			</div>
-		</div>
-	</div>
 		<div ng-repeat="ans in evalQuestions track by $index">
 			<div ng-if="ans.sType == 'teacher'">
 				<h3>{{ans.tFullName}}</h3>

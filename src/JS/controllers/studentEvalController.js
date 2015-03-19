@@ -19,9 +19,9 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 
 		if($routeParams.evalID !== undefined) {
 
-				console.log($routeParams.evalID);
-				console.log($routeParams.evalCourse);
-				console.log($routeParams.evalSemester);
+				//console.log($routeParams.evalID);
+				//console.log($routeParams.evalCourse);
+				//console.log($routeParams.evalSemester);
 				$scope.course = $routeParams.evalCourse;
 				$scope.semester = $routeParams.evalSemester;
 
@@ -46,48 +46,60 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 					console.log("success");
 					for(var teacher in response) {
 						$scope.teachers.push(response[teacher]);
-						console.log(response[teacher].SSN);
+						//console.log(response[teacher].SSN);
 					}
-				})
-				.error(function (response) {
-					console.log("Hver Þremillinn");
-				});
-			}
 
-		for(var tT in $scope.teachers) {
+							for(var tT in $scope.teachers) {
 			for (var tQ in $scope.teacherQuestions) {
 				var tqObject = {
-					"ID": tQ.ID,
+					"ID": $scope.teacherQuestions[tQ].ID,
 					"sType": 'teacher',
-					"qType": tQ.Type,
-					"tSSN": tT.SSN,
-					"tFullName": tT.FullName,
-					"qText": tQ.Text,
-					"qTextEN": tQ.Text,
-					"qAnswers": tQ.Answers,
-					"Weight": tQ.Weight,
+					"qType": $scope.teacherQuestions[tQ].Type,
+					"tSSN": $scope.teachers[tT].SSN,
+					"tFullName": $scope.teachers[tT].FullName,
+					"qText": $scope.teacherQuestions[tQ].Text,
+					"qTextEN": $scope.teacherQuestions[tQ].Text,
+					"qAnswers": [],
+					"Weight": $scope.teacherQuestions[tQ].Weight,
 					"Answer": ''
 				};
+				for(var ans in $scope.teacherQuestions[tQ].Answers){
+					tqObject.qAnswers.push($scope.teacherQuestions[tQ].Answers[ans]);
+				}
 
+				console.log(tqObject);
 				$scope.evalQuestions.push(tqObject); 
 			}
 		}	
 
 		for(var cQ in $scope.courseQuestions) {
 			var cqObject = {
-					"ID": cQ.ID,
+					"ID": $scope.courseQuestions[cQ].ID,
 					"sType": 'course',
-					"qType": cQ.Type,
+					"qType": $scope.courseQuestions[cQ].Type,
 					"tSSN": '',
 					"tFullName": '',
-					"qText": cQ.Text,
-					"qTextEN": cQ.Text,
-					"qAnswers": cQ.Answers,
-					"Weight": cQ.Weight,
+					"qText": $scope.courseQuestions[cQ].Text,
+					"qTextEN": $scope.courseQuestions[cQ].Text,
+					"qAnswers": [],
+					"Weight": $scope.courseQuestions[cQ].Weight,
 					"Answer": ''
 				};
+
+				for(var ans2 in $scope.courseQuestions[cQ].Answers){
+					cqObject.qAnswers.push($scope.courseQuestions[cQ].Answers[ans2]);
+				}
+				console.log(cqObject);
 				$scope.evalQuestions.push(cqObject);
 		}
+
+
+				})
+				.error(function (response) {
+					console.log("Hver Þremillinn");
+				});
+			}
+
 
 		$scope.submitQuestion = function (Weight, SSN, qID) {
 
@@ -110,10 +122,7 @@ angular.module('RuCourseEvaluator').controller("StudentEvalController",[
 			})
 			.error(function (response) {
 				console.log("skrambinn");
-			});
-
-
-			
+			});		
 		};
 	}
 ])
